@@ -16,9 +16,11 @@ class FacilidadesController{
         //res.send(list_comiss);
     }
     async newcomiss(req, res){
-        res.render('/admin/comissao/new');
+        res.render('admin/comissao/new');
     }
-   
+   async save(req, res){
+    
+   }
 }
 
 module.exports = new FacilidadesController();
