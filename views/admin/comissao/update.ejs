@@ -1,28 +1,31 @@
 <%- include('../../partials/header.ejs') %>
 <%- include('../../partials/navbar.ejs') %>
+<div class="container">
     <hr>
-    <div class="container">
-        <div class="card-header">
-            <h2>Comissões - Edição</h2>
-        </div>
-        
-            <table class="table table-bordered">
-                           
-                <tbody>            
-                    <% comissoes.forEach((comissao)=> { %>
-                        <tr>                         
-                            <td>
-                                <%= comissao.comissao %> - <%= comissao.comissao %>
-                            </td>
-                            <td>    
-                                <button type="button" class="btn btn-info">Editar</button>
-                                <button type="button" class="btn btn-danger">Excluir</button>
-                            </td>                            
-                        </tr>
-                        <% }) %>
-                </tbody>
-            
-            </table>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-header">
+                <h2>Alterar Comissão</h2>                
+            </div>
+
+            <% comissoes.forEach(comiss=> { %>
                
+            <form method="post" action="/admin/comissao/save">
+
+                <input type="hidden" name="id" value="<%= comiss.id %>">
+                Comissão:<input class="form-control" type="text" name="comissao" value="<%= comiss.comissao %>"><br>
+                Sigla:<input class="form-control" type="text" name="sigla" value="<%= comiss.sigla %>"><br>
+                Número de Membros:<input class="form-control" type="number" name="membros"
+                value="<%= comiss.membros %>"><br>
+               
+
+                <button class="btn btn-success">Alterar</button>
+            </form>
+            <% }) %>    
+        </div>
     </div>
+
+
+</div>
+        
 <%- include('../../partials/footer.ejs') %>
