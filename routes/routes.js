@@ -87,6 +87,6 @@ router.post('/admin/secao/new',RegimentoController.secaosave);
 //router.post('/admin/secao/update',RegimentoController.updatecapitulo);
 //router.post('/admin/secao/save',RegimentoController.savecapitulo);
 //router.post('/admin/secao/delete',RegimentoController.deletecapitulo);
-// regimento digital
+
 module.exports = router;
 
