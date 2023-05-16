@@ -3,24 +3,50 @@ const router = express.Router();
 var knex = require("../../database/conection");
 
 class Comissao{  
+
     async findAll(){
         try{
-            var result = await knex.select("*").table("tab_comissao");            
-            return result;
-        }catch(error){
-            console.log(error);
-            return[];
+            //var result = await knex.select(["id","comissao","sigla","membros"]).table("tab_comissao")    
+            var result = await knex.select(['id','comissao','sigla','membros']).table('tab_comissao')                  
+            return result;7            
+        }catch(err){
+            console.log(err);
+            return [];
         }
     }
-    async findById(comissao){
-        try{           
-            var result  = await knex.where({id: comissao}).table("tab_comissao")
-            return result;
+    //async findAll(){
+       // try{
+           // var result = await knex.select("*").table("tab_comissao");            
+        //    return result;
+       // }catch(error){
+           // console.log(error);
+           // return[];
+      //  }
+   // }
+   // async findById(comissao){
+       // try{           
+          //  var result  = await knex.where({id: comissao}).table("tab_comissao")
+          //  return result;
 
-        }catch(error){
-            console.log(error);
-            return[];
+      //  }catch(error){
+         //   console.log(error);
+        //    return[];
 
+      //  }
+    //}
+    async findById(id){
+        try{
+            var result = await knex.select(["id","comissao","sigla","membros"]).where({id:id}).table("tab_comissao");
+            
+            if(result.length > 0){
+                return result[0];
+            }else{
+                return undefined;
+            }
+
+        }catch(err){
+            console.log(err);
+            return undefined;
         }
     }
     async ComissSave(comissao,sigla,membros){

@@ -33,6 +33,18 @@ class FacilidadesController {
    
    // Administração Comissões
 
+   async findComissao(req, res){
+      var id = req.params.id;
+      var comissao = await Comissao.findById(id);
+      if(comissao == undefined){
+          res.status(404);
+          res.json({});
+      }else{
+          res.status(200)
+          res.json(comissao);
+      }
+  }
+ 
    //async newcomiss(req, res) {
 
      // res.render('admin/comissao/new');
@@ -44,10 +56,10 @@ class FacilidadesController {
       await Comissao.ComissSave(comissao, sigla, membros);
    }
    
-   async editcomiss(req, res) {
+   async listacomissao(req, res) {
 
-      var list_comiss = await Comissao.findAll()
-      res.json(list_comiss);
+      var comissoes = await Comissao.findAll();
+      res.json(comissoes);
 
       //res.render('admin/comissao/edicao', { comissoes: list_comiss });
 
