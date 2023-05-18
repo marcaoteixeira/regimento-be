@@ -61,12 +61,12 @@ router.post('/admin/recurso/delete',FacilidadesController.deleterecurso);
 
 //Rotas Regimento Titulo
 
-router.get('/admin/titulo/new',RegimentoController.newtitulo);
+router.get('/admin/titulo/:id',RegimentoController.findTitulo);
 router.post('/admin/titulo/new',RegimentoController.titulosave);
-router.get('/admin/titulo/edit',RegimentoController.edittitulo);
-router.post('/admin/titulo/update',RegimentoController.updatetitulo);
+router.post('/admin/titulo/list',RegimentoController.listatitulo);
+//router.put('/admin/titulo/update',RegimentoController.updatetitulo);
 router.post('/admin/titulo/save',RegimentoController.savetitulo);
-router.post('/admin/titulo/delete',RegimentoController.deletetitulo);
+router.post('/admin/titulo/delete/:id',RegimentoController.deletetitulo);
 
 //Rotas Regimento Capitulo
 

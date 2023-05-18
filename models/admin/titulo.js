@@ -12,9 +12,9 @@ class Titulo{
             return[];
         }
     }
-    async findById(titulo){
+    async findById(id){
         try{           
-            var result  = await knex.where({id: titulo}).table("tab_titulo")
+            var result  = await knex.where({id: id}).table("tab_titulo")
             return result;
 
         }catch(error){
@@ -40,8 +40,7 @@ class Titulo{
             console.log("Alterado com sucesso com sucesso!!!")
 
         }catch(error){
-            console.log(error);
-            
+            console.log(error);            
 
         }
     } 

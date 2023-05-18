@@ -66,7 +66,7 @@ class FacilidadesController {
    }
    async updatecomiss(req, res) {
       var {id, comissao, sigla, membros } = req.body;
-      var result = await Comissao.ComissUpdate(id,comissao,sigla,membros);
+      await Comissao.ComissUpdate(id,comissao,sigla,membros);
             
    }
    async savecomiss(req, res) {

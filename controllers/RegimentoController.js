@@ -7,9 +7,16 @@ class RegimentoController{
 
    //Administração Cadastro Titulo do Regimento
 
-   async newtitulo(req, res) {
-
-      res.render('admin/regimento/titulonew');
+   async findTitulo(req, res){
+      var id = req.params.id;
+      var titulo = await Titulo.findById(id);
+      if(titulo == undefined){
+          res.status(404);
+          res.json({});
+      }else{
+          res.status(200)
+          res.json(titulo);
+      }
    }
    async titulosave(req, res) {
 
@@ -18,19 +25,18 @@ class RegimentoController{
       await Titulo.TituloSave(titulo);
       res.redirect('new');
    }
-   async edittitulo(req, res) {
+   async listatitulo(req, res) {
 
-      var list_titulo = await Titulo.findAll()
+      var titulos = await Titulo.findAll();
+      res.json(titulos);
 
-      res.render('admin/regimento/tituloedicao', { titulo: list_titulo });
+      //res.render('admin/comissao/edicao', { comissoes: list_comiss });
 
    }
-   async updatetitulo(req, res) {
-
-      var id = req.body.id;
-      var list_titulo = await Titulo.findById(id)
-      res.render('admin/regimento/tituloupdate', { titulo: list_titulo });
-
+   async updatetiulo(req, res) {
+      var {id, titulo } = req.body;
+      await Titulo.TituloUpdate(id, titulo);
+            
    }
    async savetitulo(req, res) {
       var id = req.body.id
