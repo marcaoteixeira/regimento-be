@@ -14,26 +14,6 @@ class Comissao{
             return [];
         }
     }
-    //async findAll(){
-       // try{
-           // var result = await knex.select("*").table("tab_comissao");            
-        //    return result;
-       // }catch(error){
-           // console.log(error);
-           // return[];
-      //  }
-   // }
-   // async findById(comissao){
-       // try{           
-          //  var result  = await knex.where({id: comissao}).table("tab_comissao")
-          //  return result;
-
-      //  }catch(error){
-         //   console.log(error);
-        //    return[];
-
-      //  }
-    //}
     async findById(id){
         try{
             var result = await knex.select(["id","comissao","sigla","membros"]).where({id:id}).table("tab_comissao");

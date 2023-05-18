@@ -65,9 +65,9 @@ class FacilidadesController {
 
    }
    async updatecomiss(req, res) {
-      var comissao = req.body.comissao;
-      var list_comiss = await Comissao.findById(comissao)
-      res.render('admin/comissao/update', { comissoes: list_comiss });
+      var {id, comissao, sigla, membros } = req.body;
+      var result = await Comissao.ComissUpdate(id,comissao,sigla,membros);
+            
    }
    async savecomiss(req, res) {
       var id = req.body.id

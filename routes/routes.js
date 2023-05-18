@@ -20,7 +20,7 @@ router.get('/usopalavra',FacilidadesController.usopalavra);
 router.get('/admin/comissao/:id',FacilidadesController.findComissao);
 router.post('/admin/comissao/new',FacilidadesController.comissaosave);
 router.post('/admin/comissao/list',FacilidadesController.listacomissao);
-router.post('/admin/comissao/update',FacilidadesController.updatecomiss);
+router.put('/admin/comissao/update',FacilidadesController.updatecomiss);
 router.post('/admin/comissao/save',FacilidadesController.savecomiss);
 router.delete('/admin/comissao/delete/:id',FacilidadesController.deletecomiss);
 
