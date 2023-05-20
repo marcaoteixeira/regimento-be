@@ -17,6 +17,7 @@ class RegimentoController{
           res.status(200)
           res.json(titulo);
       }
+
    }
    async titulosave(req, res) {
 

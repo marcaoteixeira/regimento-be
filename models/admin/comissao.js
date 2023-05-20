@@ -8,7 +8,7 @@ class Comissao{
         try{
             //var result = await knex.select(["id","comissao","sigla","membros"]).table("tab_comissao")    
             var result = await knex.select(['id','comissao','sigla','membros']).table('tab_comissao')                  
-            return result;7            
+            return result;            
         }catch(err){
             console.log(err);
             return [];

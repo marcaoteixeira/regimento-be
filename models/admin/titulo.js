@@ -4,24 +4,29 @@ var knex = require("../../database/conection");
 
 class Titulo{
     async findAll(){
-        try{
-            var result = await knex.select("*").table("tab_titulo");            
+       try{
+            var result = await knex.select(['id', 'titulo']).table("tab_titulo");            
             return result;
-        }catch(error){
-            console.log(error);
+        }catch(err){
+            console.log(err);
             return[];
         }
     }
     async findById(id){
-        try{           
-            var result  = await knex.where({id: id}).table("tab_titulo")
-            return result;
+        try{
+            var result = await knex.select(["id","titulo"]).where({id:id}).table("tab_titulo");
+            
+            if(result.length > 0){
+                return result[0];
+            }else{
+                return undefined;
+            }
 
-        }catch(error){
-            console.log(error);
-            return[];
-
+        }catch(err){
+            console.log(err);
+            return undefined;
         }
+         
     }
     async TituloSave(titulo){
         try{                       
