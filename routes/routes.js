@@ -3,7 +3,7 @@ var router = express.Router();
 const HomeController = require("../controllers/HomeController");
 const FacilidadesController = require("../controllers/FacilidadesController");
 const RegimentoController = require("../controllers/RegimentoController");
-const { SecaoDelete } = require("../models/admin/secao");
+
 
 
 router.get('/',HomeController.index);
@@ -64,19 +64,18 @@ router.post('/admin/recurso/delete',FacilidadesController.deleterecurso);
 router.get('/admin/titulo/:id',RegimentoController.findTitulo);
 router.post('/admin/titulo/new',RegimentoController.titulosave);
 router.post('/admin/titulo/list',RegimentoController.listatitulo);
-//router.put('/admin/titulo/update',RegimentoController.updatetitulo);
+router.put('/admin/titulo/update',RegimentoController.updatetiulo);
 router.post('/admin/titulo/save',RegimentoController.savetitulo);
-router.post('/admin/titulo/delete/:id',RegimentoController.deletetitulo);
+router.delete('/admin/titulo/delete/:id',RegimentoController.deletetitulo);
 
 //Rotas Regimento Capitulo
 
-router.get('/admin/capitulo/new',RegimentoController.newcapitulo);
+router.get('/admin/capitulo/:id',RegimentoController.newcapitulo);
 router.post('/admin/capitulo/new',RegimentoController.capitulosave);
-router.get('/admin/capitulo/select',RegimentoController.selecttitulo);
-router.post('/admin/capitulo/edit',RegimentoController.editcapitulo);
+router.get('/admin/capitulo/list',RegimentoController.selecttitulo);
 router.post('/admin/capitulo/update',RegimentoController.updatecapitulo);
 router.post('/admin/capitulo/save',RegimentoController.savecapitulo);
-router.post('/admin/capitulo/delete',RegimentoController.deletecapitulo);
+router.post('/admin/capitulo/delete/:id',RegimentoController.deletecapitulo);
 
 //Rotas Regimento Sessão
 

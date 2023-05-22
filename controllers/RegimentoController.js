@@ -35,6 +35,7 @@ class RegimentoController{
 
    }
    async updatetiulo(req, res) {
+
       var {id, titulo } = req.body;
       await Titulo.TituloUpdate(id, titulo);
             
@@ -49,9 +50,9 @@ class RegimentoController{
 
    }
    async deletetitulo(req, res) {
-      var id = req.body.id;
+      var id =  req.params.id
       await Titulo.TituloDelete(id);
-      res.redirect('edit');
+   
 
    }
 
