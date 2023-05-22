@@ -64,7 +64,7 @@ class RegimentoController{
    }
    async capitulosave(req, res) {
 
-      var id_titulo = req.body.id_titulo
+      var id_titulo = req.body.id_titulo;
       var capitulo = req.body.capitulo;
       
       await Capitulo.CapituloSave(id_titulo, capitulo);

@@ -35,9 +35,8 @@ class Capitulo{
     }
     async CapituloSave(id_titulo, capitulo){
         try{                       
-            console.log(id_titulo)
-            console.log(capitulo)
-            // await knex.insert({ id_titulo, capitulo }).table("tab_capitulo");
+            
+            await knex.insert({ id_titulo, capitulo }).table("tab_capitulo");
             console.log("Cadastro com sucesso!!!")
 
         }catch(error){
