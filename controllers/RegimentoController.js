@@ -24,7 +24,7 @@ class RegimentoController{
       var titulo = req.body.titulo;
       
       await Titulo.TituloSave(titulo);
-      res.redirect('new');
+      //res.redirect('new');
    }
    async listatitulo(req, res) {
 
