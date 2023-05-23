@@ -1,0 +1,40 @@
+<%- include('../partials/header.ejs') %>
+    <%- include('../partials/navbar.ejs') %>
+        <hr>
+        <div class="container">
+            <div class="card-header">
+                <h2>Uso da Palavra</h2>
+            </div>
+            <div class="card-body">
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Evento</th>
+                            <th scope="col">Destinatario</th>
+                            <th scope="col">Tempo</th>
+                            <th scope="col">Fundamento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% usopalavra.forEach((palavra)=> { %>
+                        <tr>                                                
+                                <td>
+                                    <%= palavra.evento %>
+                                </td>
+                                <td>
+                                    <%= palavra.destinatario %>
+                                </td>
+                                <td>
+                                    <%= palavra.tempo %>
+                                </td>
+                                <td>
+                                    <%= palavra.fundamento %>
+                                </td>
+                
+                                <% }) %>
+                        </tr>
+                    </tbody>
+                </table>              
+            </div>
+            <%- include('../partials/footer.ejs') %></hr>

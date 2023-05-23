@@ -1,22 +1,28 @@
 var express = require("express");
 var router = express.Router();
+const HomeController = require("../controllers/HomeController");
 const FacilidadesController = require("../controllers/FacilidadesController");
-var HomeController = require("../controllers/HomeController");
+const RegimentoController = require("../controllers/RegimentoController");
+
 
 
 router.get('/',HomeController.index);
 
-//Rotas de Facilidades Comissões
-router.get('/facilidades',FacilidadesController.lista);
+//Rotas de Facilidades 
+router.get('/facilidades',FacilidadesController.facilidades);
+router.get('/quorum',FacilidadesController.lista);
 router.post('/list_quorum',FacilidadesController.quorum);
+router.get('/usopalavra',FacilidadesController.usopalavra);
+//router.post('/list_quorum',FacilidadesController.requerimentos);
+//router.post('/list_quorum',FacilidadesController.emendas);
 
 //Rotas de Facilidades Comissões
-router.get('/admin/comissao/new',FacilidadesController.newcomiss);
+router.get('/admin/comissao/:id',FacilidadesController.findComissao);
 router.post('/admin/comissao/new',FacilidadesController.comissaosave);
-router.get('/admin/comissao/edit',FacilidadesController.editcomiss);
-router.post('/admin/comissao/update',FacilidadesController.updatecomiss);
+router.post('/admin/comissao/list',FacilidadesController.listacomissao);
+router.put('/admin/comissao/update',FacilidadesController.updatecomiss);
 router.post('/admin/comissao/save',FacilidadesController.savecomiss);
-router.post('/admin/comissao/delete',FacilidadesController.deletecomiss);
+router.delete('/admin/comissao/delete/:id',FacilidadesController.deletecomiss);
 
 //Rotas de Facilidades Uso da Palavra
 router.get('/admin/usopalavra/new',FacilidadesController.newpalavra);
@@ -41,7 +47,7 @@ router.get('/admin/emenda/edit',FacilidadesController.editemenda);
 router.post('/admin/emenda/update',FacilidadesController.updateemenda);
 router.post('/admin/emenda/save',FacilidadesController.saveemenda);
 router.post('/admin/emenda/delete',FacilidadesController.deleteemenda);
-module.exports = router;
+
 
 //Rotas de Facilidades Recursos
 
@@ -52,4 +58,34 @@ router.post('/admin/recurso/update',FacilidadesController.updaterecurso);
 router.post('/admin/recurso/save',FacilidadesController.saverecurso);
 router.post('/admin/recurso/delete',FacilidadesController.deleterecurso);
 
+
+//Rotas Regimento Titulo
+
+router.get('/admin/titulo/:id',RegimentoController.findTitulo);
+router.post('/admin/titulo/new',RegimentoController.titulosave);
+router.post('/admin/titulo/list',RegimentoController.listatitulo);
+router.put('/admin/titulo/update',RegimentoController.updatetiulo);
+router.post('/admin/titulo/save',RegimentoController.savetitulo);
+router.delete('/admin/titulo/delete/:id',RegimentoController.deletetitulo);
+
+//Rotas Regimento Capitulo
+
+router.get('/admin/capitulo/:id',RegimentoController.newcapitulo);
+router.post('/admin/capitulo/new',RegimentoController.capitulosave);
+router.get('/admin/capitulo/list',RegimentoController.selecttitulo);
+router.post('/admin/capitulo/update',RegimentoController.updatecapitulo);
+router.post('/admin/capitulo/save',RegimentoController.savecapitulo);
+router.post('/admin/capitulo/delete/:id',RegimentoController.deletecapitulo);
+
+//Rotas Regimento Sessão
+
+router.get('/admin/secao/new',RegimentoController.newsecao);
+router.post('/admin/secao/new',RegimentoController.secaosave);
+//router.get('/admin/secao/select',RegimentoController.selecttitulo);
+//router.post('/admin/secao/edit',RegimentoController.editcapitulo);
+//router.post('/admin/secao/update',RegimentoController.updatecapitulo);
+//router.post('/admin/secao/save',RegimentoController.savecapitulo);
+//router.post('/admin/secao/delete',RegimentoController.deletecapitulo);
+
 module.exports = router;
+

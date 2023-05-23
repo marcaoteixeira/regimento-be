@@ -1,0 +1,55 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs') %>
+    <hr>
+    <div class="container">
+        <div class="card-header">
+            <h2>Capitulos - Edição</h2>
+        </div>
+        
+            <table class="table table-bordered">
+                           
+                <tbody>            
+                    <% capitulo.forEach((capitulo)=> { %>
+                        <tr>
+                            <td>
+                                <%= capitulo.id %>
+                            </td>
+                            <td>
+                                <%= capitulo.capitulo %> 
+                            </td>
+                            <td>                            
+                                <form method="post" action="/admin/capitulo/update">
+                                <input type="hidden" name="id" value="<%= capitulo.id %>">
+                                <button class="btn btn-success">Editar</button>
+                            </form>
+
+                            </td>
+                            <td>
+                                <form method="post" action="/admin/capitulo/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
+                                    <input type="hidden" name="id" value="<%= capitulo.id %>">
+                                    <button class="btn btn-danger">Excluir</button>
+                                </form>
+                        
+                        
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            
+            </table>
+               
+    </div>
+<%- include('../../partials/footer.ejs') %>
+<script>
+    function confirmarDelecao(event, form){
+        event.preventDefault();
+        console.log("O formulário não foi enviado!");
+        var decision = confirm("Você quer realmente deletar esse Título?")
+        if(decision){
+            console.log("Capitulo Excluido!")
+            form.submit();
+        }else{
+            console.log("Não Deletado!")
+        }
+    }
+</script>
