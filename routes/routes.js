@@ -70,9 +70,9 @@ router.delete('/admin/titulo/delete/:id',RegimentoController.deletetitulo);
 
 //Rotas Regimento Capitulo
 
-router.get('/admin/capitulo/:id',RegimentoController.newcapitulo);
+router.get('/admin/capitulo/:id',RegimentoController.findCapitulo);
 router.post('/admin/capitulo/new',RegimentoController.capitulosave);
-router.get('/admin/capitulo/list',RegimentoController.selecttitulo);
+router.post('/admin/capitulo/list',RegimentoController.listacapitulo);
 router.post('/admin/capitulo/update',RegimentoController.updatecapitulo);
 router.post('/admin/capitulo/save',RegimentoController.savecapitulo);
 router.post('/admin/capitulo/delete/:id',RegimentoController.deletecapitulo);

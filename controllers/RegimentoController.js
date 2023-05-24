@@ -55,57 +55,58 @@ class RegimentoController{
    
 
    }
-
    //Administração Cadastro Capitulo do Regimento
+  
+   async findCapitulo(req, res){
+      var id = req.params.id;
+      var capitulo = await Capitulo.findById(id);
+      if(capitulo == undefined){
+          res.status(404);
+          res.json({});
+      }else{
+          res.status(200)
+          res.json(capitulo);
+      }
 
-   async newcapitulo(req, res) {
-      var list_titulo = await Capitulo.tfindAll();
-      res.render('admin/regimento/capitulonew',{titulo: list_titulo});
    }
    async capitulosave(req, res) {
 
-      var id_titulo = req.body.id_titulo;
-      var capitulo = req.body.capitulo;
+      var {id_titulo, capitulo} = req.body;       
       
       await Capitulo.CapituloSave(id_titulo, capitulo);
-      res.redirect('new');
+      //res.redirect('new');
    }
-   async selecttitulo(req, res) {
-      var list_titulo = await Capitulo.tfindAll();
-      res.render('admin/regimento/capituloselect',{titulo: list_titulo});
+   async listacapitulo(req, res) {
 
-   }
-   async editcapitulo(req, res) {
+      var capitulos = await Capitulo.findAll();
+      res.json(capitulos);  
 
-      var id_titulo = req.body.id_titulo;
-      var list_capitulo = await Capitulo.findAll(id_titulo);
-
-      res.render('admin/regimento/capituloedicao',{ capitulo: list_capitulo });
+      //res.render('admin/comissao/edicao', { comissoes: list_comiss });
 
    }
    async updatecapitulo(req, res) {
 
-      var id = req.body.id;
-      var list_capitulo = await Capitulo.findById(id)
-      res.render('admin/regimento/capituloupdate', { capitulo: list_capitulo });
-
+      var {id, id_titulo, capitulo} = req.body;
+      await Capitulo.CapituloUpdate(id, id_titulo, capitulo);
+            
    }
    async savecapitulo(req, res) {
-            
-      var id = req.body.id;
-      var capitulo = req.body.capitulo;
+      var id = req.body.id
+      var id_titulo = req.body.Id_capitulo
+      var capitulo = req.body.caítulo;
       
-      await Capitulo.CapituloUpdate(id, capitulo);
+      await Capitulo.CapituloSave(id, id_titulo, capitulo);
       
-      res.redirect('select');
+     // res.redirect('edit');
 
    }
    async deletecapitulo(req, res) {
-      var id = req.body.id;
+      var id =  req.params.id
       await Capitulo.CapituloDelete(id);
-      res.redirect('select');
+   
 
    }
+   
     //Administração Cadastro Seção do Regimento
 
     async newsecao(req, res) {
