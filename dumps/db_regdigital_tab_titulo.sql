@@ -16,29 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tab_paragrafo`
+-- Table structure for table `tab_titulo`
 --
 
-DROP TABLE IF EXISTS `tab_paragrafo`;
+DROP TABLE IF EXISTS `tab_titulo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tab_paragrafo` (
+CREATE TABLE `tab_titulo` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `id_artigo` int unsigned NOT NULL DEFAULT '0',
-  `paragrafo` longtext NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk-paragrafo-artigo` (`id_artigo`),
-  CONSTRAINT `fk-paragrafo-artigo` FOREIGN KEY (`id_artigo`) REFERENCES `tab_artigo` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Paragrafos do  RICCD';
+  `titulo` varchar(100) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabela de titulos do RICD';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tab_paragrafo`
+-- Dumping data for table `tab_titulo`
 --
 
-LOCK TABLES `tab_paragrafo` WRITE;
-/*!40000 ALTER TABLE `tab_paragrafo` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tab_paragrafo` ENABLE KEYS */;
+LOCK TABLES `tab_titulo` WRITE;
+/*!40000 ALTER TABLE `tab_titulo` DISABLE KEYS */;
+INSERT INTO `tab_titulo` VALUES (1,'TÍTULO I  - DISPOSIÇÕES PRELIMINARES '),(2,'TÍTULO II  - DOS ÓRGÃOS DA CÂMARA'),(3,'TÍTULO III - DAS SESSÕES DA CÂMARA'),(4,'TÍTULO IV - DAS PROPOSIÇÕES'),(5,'TÍTULO V - DA APRECIAÇÃO DAS PROPOSIÇÕES'),(6,'TÍTULO VI - DAS MATÉRIAS SUJEITAS A DISPOSIÇÕES ESPECIAIS'),(7,'TÍTULO VII -  DOS DEPUTADOS'),(8,'TÍTULO VIII - DA PARTICIPAÇÃO DA SOCIEDADE CIVIL'),(9,'TÍTULO  IX -  DA ADMINISTRAÇÃO E DA ECONOMIA INTERNA'),(10,'TÍTULO X - DAS DISPOSIÇÕES FINAIS');
+/*!40000 ALTER TABLE `tab_titulo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-02  8:19:30
+-- Dump completed on 2023-05-24 19:12:48
