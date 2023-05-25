@@ -89,6 +89,49 @@ class RegimentoController{
    
 
    }   
+    //Administração Cadastro Seção do Regimento
+  
+    async findCapitulo(req, res){
+      var id = req.params.id;
+      var capitulo = await Capitulo.findById(id);
+      if(capitulo == undefined){
+          res.status(404);
+          res.json({});
+      }else{
+          res.status(200)
+          res.json(capitulo);
+      }
+
+   }
+   async secaosave(req, res) {
+
+      var {id_titulo,id_capitulo, secao} = req.body;       
+      
+      await Secao.SecaoSave(id_titulo,id_capitulo, secao);
+      //res.redirect('new');
+   }
+   async listacapitulo(req, res) {
+
+      var capitulos = await Capitulo.findAll();
+      res.json(capitulos);  
+
+      //res.render('admin/comissao/edicao', { comissoes: list_comiss });
+
+   }
+   async updatecapitulo(req, res) {
+
+      var {id, id_titulo, capitulo} = req.body;
+      
+      await Capitulo.CapituloUpdate(id, id_titulo, capitulo);
+            
+   }
+ 
+   async deletecapitulo(req, res) {
+      var id =  req.params.id      
+      await Capitulo.CapituloDelete(id);
+   
+
+   }   
 
 }
 

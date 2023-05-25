@@ -79,8 +79,8 @@ router.delete('/admin/capitulo/delete/:id',RegimentoController.deletecapitulo);
 
 //Rotas Regimento Sessão
 
-//router.get('/admin/secao/new',RegimentoController.newsecao);
-//router.post('/admin/secao/new',RegimentoController.secaosave);
+//router.get('/admin/secao/:id',RegimentoController.findSecao);
+router.post('/admin/secao/new',RegimentoController.secaosave);
 //router.get('/admin/secao/select',RegimentoController.selecttitulo);
 //router.post('/admin/secao/edit',RegimentoController.editcapitulo);
 //router.post('/admin/secao/update',RegimentoController.updatecapitulo);
