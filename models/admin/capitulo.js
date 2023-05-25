@@ -50,13 +50,14 @@ class Capitulo{
     } 
     async CapituloDelete(id){
         try{                       
-            await knex.where({id: id}).delete().table("tab_capitulo")
-            console.log("Titulo excluido com sucesso!!!")            
+            await knex.where({id: id}).delete().table("tab_capitulo")            
+            console.log("Capitulo excluido com sucesso!!!")            
 
         }catch(error){
             console.log(error);            
 
         }
+       
     } 
 
 }

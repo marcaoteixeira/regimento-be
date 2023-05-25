@@ -75,7 +75,7 @@ router.post('/admin/capitulo/new',RegimentoController.capitulosave);
 router.post('/admin/capitulo/list',RegimentoController.listacapitulo);
 router.put('/admin/capitulo/update',RegimentoController.updatecapitulo);
 //router.post('/admin/capitulo/save',RegimentoController.savecapitulo);
-router.post('/admin/capitulo/delete/:id',RegimentoController.deletecapitulo);
+router.delete('/admin/capitulo/delete/:id',RegimentoController.deletecapitulo);
 
 //Rotas Regimento Sessão
 

@@ -84,7 +84,7 @@ class RegimentoController{
    }
  
    async deletecapitulo(req, res) {
-      var id =  req.params.id
+      var id =  req.params.id      
       await Capitulo.CapituloDelete(id);
    
 
