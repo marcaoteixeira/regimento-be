@@ -21,7 +21,7 @@ router.get('/admin/comissao/:id',FacilidadesController.findComissao);
 router.post('/admin/comissao/new',FacilidadesController.comissaosave);
 router.post('/admin/comissao/list',FacilidadesController.listacomissao);
 router.put('/admin/comissao/update',FacilidadesController.updatecomiss);
-router.post('/admin/comissao/save',FacilidadesController.savecomiss);
+//router.post('/admin/comissao/save',FacilidadesController.savecomiss);
 router.delete('/admin/comissao/delete/:id',FacilidadesController.deletecomiss);
 
 //Rotas de Facilidades Uso da Palavra
@@ -65,7 +65,7 @@ router.get('/admin/titulo/:id',RegimentoController.findTitulo);
 router.post('/admin/titulo/new',RegimentoController.titulosave);
 router.post('/admin/titulo/list',RegimentoController.listatitulo);
 router.put('/admin/titulo/update',RegimentoController.updatetiulo);
-router.post('/admin/titulo/save',RegimentoController.savetitulo);
+//router.post('/admin/titulo/save',RegimentoController.savetitulo);
 router.delete('/admin/titulo/delete/:id',RegimentoController.deletetitulo);
 
 //Rotas Regimento Capitulo
@@ -73,14 +73,14 @@ router.delete('/admin/titulo/delete/:id',RegimentoController.deletetitulo);
 router.get('/admin/capitulo/:id',RegimentoController.findCapitulo);
 router.post('/admin/capitulo/new',RegimentoController.capitulosave);
 router.post('/admin/capitulo/list',RegimentoController.listacapitulo);
-router.post('/admin/capitulo/update',RegimentoController.updatecapitulo);
-router.post('/admin/capitulo/save',RegimentoController.savecapitulo);
+router.put('/admin/capitulo/update',RegimentoController.updatecapitulo);
+//router.post('/admin/capitulo/save',RegimentoController.savecapitulo);
 router.post('/admin/capitulo/delete/:id',RegimentoController.deletecapitulo);
 
 //Rotas Regimento Sessão
 
-router.get('/admin/secao/new',RegimentoController.newsecao);
-router.post('/admin/secao/new',RegimentoController.secaosave);
+//router.get('/admin/secao/new',RegimentoController.newsecao);
+//router.post('/admin/secao/new',RegimentoController.secaosave);
 //router.get('/admin/secao/select',RegimentoController.selecttitulo);
 //router.post('/admin/secao/edit',RegimentoController.editcapitulo);
 //router.post('/admin/secao/update',RegimentoController.updatecapitulo);

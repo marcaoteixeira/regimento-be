@@ -38,7 +38,7 @@ class Capitulo{
 
         }
     }  
-    async CapituloUpdate(id, capitulo){
+    async CapituloUpdate(id,id_titulo, capitulo){
         try{                       
             await knex.where({id: id}).update({ id_titulo, capitulo }).table("tab_capitulo")
             console.log("Alterado com sucesso com sucesso!!!")
