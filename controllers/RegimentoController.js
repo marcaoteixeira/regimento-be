@@ -105,9 +105,9 @@ class RegimentoController{
    }
    async secaosave(req, res) {
 
-      var {id_titulo,id_capitulo, secao} = req.body;       
+      var {id_titulo, id_capitulo, secao} = req.body;       
       
-      await Secao.SecaoSave(id_titulo,id_capitulo, secao);
+      await Secao.SecaoSave(id_titulo, id_capitulo, secao);
       //res.redirect('new');
    }
    async listacapitulo(req, res) {
