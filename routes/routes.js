@@ -81,11 +81,21 @@ router.delete('/admin/capitulo/delete/:id',RegimentoController.deletecapitulo);
 
 //router.get('/admin/secao/:id',RegimentoController.findSecao);
 router.post('/admin/secao/new',RegimentoController.secaosave);
-//router.get('/admin/secao/select',RegimentoController.selecttitulo);
+router.post('/admin/secao/list',RegimentoController.listasecao);
 //router.post('/admin/secao/edit',RegimentoController.editcapitulo);
 //router.post('/admin/secao/update',RegimentoController.updatecapitulo);
 //router.post('/admin/secao/save',RegimentoController.savecapitulo);
-//router.post('/admin/secao/delete',RegimentoController.deletecapitulo);
+//router.delete('/admin/secao/delete',RegimentoController.deletesecao);
+
+//Rotas Regimento Subsessão
+
+//router.get('/admin/secao/:id',RegimentoController.findSecao);
+router.post('/admin/subsecao/new',RegimentoController.subsecaosave);
+router.post('/admin/subsecao/list',RegimentoController.listasubsecao);
+//router.post('/admin/secao/edit',RegimentoController.editcapitulo);
+//router.post('/admin/secao/update',RegimentoController.updatecapitulo);
+//router.post('/admin/secao/save',RegimentoController.savecapitulo);
+//router.delete('/admin/secao/delete',RegimentoController.deletesecao);
 
 module.exports = router;
 

@@ -2,6 +2,7 @@ const Regimento = require("../models/regimento/regimento");
 const Titulo = require("../models/admin/titulo");
 const Capitulo = require("../models/admin/capitulo");
 const Secao = require("../models/admin/secao");
+const Subsecao = require("../models/admin/subsecao");
 
 class RegimentoController{
 
@@ -24,15 +25,14 @@ class RegimentoController{
       var titulo = req.body.titulo;
       
       await Titulo.TituloSave(titulo);
-      //res.redirect('new');
+     
    }
    async listatitulo(req, res) {
 
       var titulos = await Titulo.findAll();
       res.json(titulos);
 
-      //res.render('admin/comissao/edicao', { comissoes: list_comiss });
-
+     
    }
    async updatetiulo(req, res) {
 
@@ -65,14 +65,13 @@ class RegimentoController{
       var {id_titulo, capitulo} = req.body;       
       
       await Capitulo.CapituloSave(id_titulo, capitulo);
-      //res.redirect('new');
+     
    }
    async listacapitulo(req, res) {
 
       var capitulos = await Capitulo.findAll();
       res.json(capitulos);  
 
-      //res.render('admin/comissao/edicao', { comissoes: list_comiss });
 
    }
    async updatecapitulo(req, res) {
@@ -108,14 +107,55 @@ class RegimentoController{
       var {id_titulo, id_capitulo, secao} = req.body;       
       
       await Secao.SecaoSave(id_titulo, id_capitulo, secao);
-      //res.redirect('new');
+      
    }
-   async listacapitulo(req, res) {
+   async listasecao(req, res) {
 
-      var capitulos = await Capitulo.findAll();
-      res.json(capitulos);  
+      var secaos = await Secao.findAll();
+      res.json(secaos);  
+ 
 
-      //res.render('admin/comissao/edicao', { comissoes: list_comiss });
+   }
+   async updatecapitulo(req, res) {
+
+      var {id, id_titulo, capitulo} = req.body;
+      
+      await Capitulo.CapituloUpdate(id, id_titulo, capitulo);
+            
+   }
+ 
+   async deletecapitulo(req, res) {
+      var id =  req.params.id      
+      await Capitulo.CapituloDelete(id);
+   
+
+   }   
+   //Administração Cadastro Subseção do Regimento
+  
+   async findSubsecao(req, res){
+      var id = req.params.id;
+      var subsecao = await Subsecao.findById(id);
+      if(subsecao == undefined){
+          res.status(404);
+          res.json({});
+      }else{
+          res.status(200)
+          res.json(subsecao);
+      }
+
+   }
+   async subsecaosave(req, res) {
+
+      var {id_titulo, id_capitulo, id_secao, subsecao} = req.body;       
+      
+      await Subsecao.SubsecaoSave(id_titulo, id_capitulo, id_secao, subsecao);
+      
+   }
+   async listasubsecao(req, res) {
+
+      var secaos = await Secao.findAll();
+      res.json(secaos);  
+ 
 
    }
    async updatecapitulo(req, res) {

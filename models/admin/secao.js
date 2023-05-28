@@ -4,15 +4,15 @@ const Titulo = require("../../models/admin/titulo");
 var knex = require("../../database/conection");
 
 class Secao{
-    async findAll(id_capitulo){
+    async findAll(){
         try{
-            var result = await knex.where({id_capitulo: id_capitulo}).select("*").table("tab_secao");            
-            return result;
-        }catch(error){
-            console.log(error);
-            return[];
-        }
-    }
+             var result = await knex.select(['id', 'id_titulo', 'id_capitulo', 'secao']).table("tab_secao");            
+             return result;
+         }catch(err){
+             console.log(err);
+             return[];
+         }
+     }
     async cfindAll(){
         try{
             var result = await knex.select("*").table("tab_capitulo");            
