@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const Titulo = require("../../models/admin/titulo");
 var knex = require("../../database/conection");
 
 class Secao{

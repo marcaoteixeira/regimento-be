@@ -5,16 +5,17 @@ var knex = require("../../database/conection");
 class Artigo{
     async findAll(){
         try{
-            var result = await knex.select("*").table("tab_artigo");            
-            return result;
-        }catch(error){
-            console.log(error);
-            return[];
-        }
-    }
-    async findById(dispositivo){
+             var result = await knex.select(['id', 'id_titulo', 'id_capitulo','id_secao', 'id_subsecao', 'artigo']).table("tab_artigo");            
+             return result;
+         }catch(err){
+             console.log(err);
+             return[];
+         }
+     }
+   
+    async findById(secao){
         try{           
-            var result  = await knex.where({id: artigo}).table("tab_artigo")
+            var result  = await knex.where({id: secao}).table("tab_subsecao")
             return result;
 
         }catch(error){
@@ -23,9 +24,9 @@ class Artigo{
 
         }
     }
-    async ArtigoSave(id_capitulo, artigo){
+    async ArtigoSave(id_titulo, id_capitulo, id_secao, id_subsecao, artigo, conteudo){
         try{                       
-            await knex.insert({id_capitulo, artigo}).table("tab_artigo");
+            await knex.insert({ id_titulo, id_capitulo, id_secao, id_subsecao, artigo, conteudo }).table("tab_artigo");
             console.log("Cadastro com sucesso!!!")
 
         }catch(error){
@@ -34,9 +35,9 @@ class Artigo{
 
         }
     }  
-    async ArtigoUpdate(id, id_capitulo, artigo){
+    async SecaoUpdate(id, secao){
         try{                       
-            await knex.where({id: id}).update({id_capitulo, artigo}).table("tab_artigo")
+            await knex.where({id: id}).update({ secao }).table("tab_secao")
             console.log("Alterado com sucesso com sucesso!!!")
 
         }catch(error){
@@ -45,10 +46,10 @@ class Artigo{
 
         }
     } 
-    async ArtigoDelete(id){
+    async SecaoDelete(id){
         try{                       
-            await knex.where({id: id}).delete().table("tab_artigo")
-            console.log("Artigo excluido com sucesso!!!")            
+            await knex.where({id: id}).delete().table("tab_secao")
+            console.log("Seção excluida com sucesso!!!")            
 
         }catch(error){
             console.log(error);            

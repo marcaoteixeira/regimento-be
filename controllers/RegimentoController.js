@@ -3,6 +3,8 @@ const Titulo = require("../models/admin/titulo");
 const Capitulo = require("../models/admin/capitulo");
 const Secao = require("../models/admin/secao");
 const Subsecao = require("../models/admin/subsecao");
+const Artigo = require("../models/admin/artigo");
+
 
 class RegimentoController{
 
@@ -111,8 +113,8 @@ class RegimentoController{
    }
    async listasecao(req, res) {
 
-      var secaos = await Secao.findAll();
-      res.json(secaos);  
+      var secoes = await Secao.findAll();
+      res.json(secoes);  
  
 
    }
@@ -152,6 +154,48 @@ class RegimentoController{
       
    }
    async listasubsecao(req, res) {
+
+      var subsecoes = await Subsecao.findAll();
+      res.json(subsecoes);  
+ 
+
+   }
+   async updatecapitulo(req, res) {
+
+      var {id, id_titulo, capitulo} = req.body;
+      
+      await Capitulo.CapituloUpdate(id, id_titulo, capitulo);
+            
+   }
+ 
+   async deletecapitulo(req, res) {
+      var id =  req.params.id      
+      await Capitulo.CapituloDelete(id);
+   
+
+   }   
+   //Administração Cadastro Artigos do Regimento
+  
+   async findSubsecao(req, res){
+      var id = req.params.id;
+      var subsecao = await Subsecao.findById(id);
+      if(subsecao == undefined){
+          res.status(404);
+          res.json({});
+      }else{
+          res.status(200)
+          res.json(subsecao);
+      }
+
+   }
+   async artigosave(req, res) {
+
+      var {id_titulo, id_capitulo, id_secao, id_subsecao, artigo, conteudo} = req.body;       
+      
+      await Artigo.ArtigoSave(id_titulo, id_capitulo, id_secao, id_subsecao, artigo, conteudo);
+      
+   }
+   async listaartigo(req, res) {
 
       var secaos = await Secao.findAll();
       res.json(secaos);  
