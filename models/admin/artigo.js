@@ -5,7 +5,7 @@ var knex = require("../../database/conection");
 class Artigo{
     async findAll(){
         try{
-             var result = await knex.select(['id', 'id_titulo', 'id_capitulo','id_secao', 'id_subsecao', 'artigo']).table("tab_artigo");            
+             var result = await knex.select(['id', 'id_titulo', 'id_capitulo','id_secao', 'id_subsecao', 'artigo', 'conteudo']).table("tab_artigo");            
              return result;
          }catch(err){
              console.log(err);

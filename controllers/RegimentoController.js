@@ -197,8 +197,8 @@ class RegimentoController{
    }
    async listaartigo(req, res) {
 
-      var secaos = await Secao.findAll();
-      res.json(secaos);  
+      var artigos = await Artigo.findAll();
+      res.json(artigos);  
  
 
    }
