@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
 -- Host: localhost    Database: db_regdigital
 -- ------------------------------------------------------
--- Server version	8.0.27
+-- Server version	8.0.32
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,11 +24,14 @@ DROP TABLE IF EXISTS `tab_inciso`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tab_inciso` (
   `id` int unsigned NOT NULL,
-  `id_paragrafo` int unsigned NOT NULL,
+  `id_artigo` int unsigned NOT NULL,
+  `id_paragrafo` int unsigned DEFAULT NULL,
   `inciso` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk-inciso-paragrafo` (`id_paragrafo`),
-  CONSTRAINT `fk-inciso-paragrafo` FOREIGN KEY (`id_paragrafo`) REFERENCES `tab_paragrafo` (`id`) ON UPDATE CASCADE
+  KEY `FK_tab_inciso_tab_artigo` (`id_artigo`),
+  CONSTRAINT `FK_tab_inciso_tab_artigo` FOREIGN KEY (`id_artigo`) REFERENCES `tab_artigo` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `FK_tab_inciso_tab_paragrafo` FOREIGN KEY (`id_paragrafo`) REFERENCES `tab_paragrafo` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabela de incisos do RICD';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -50,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-01 15:26:31
+-- Dump completed on 2023-06-04 18:13:31
