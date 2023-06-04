@@ -107,5 +107,15 @@ router.post('/admin/artigo/list',RegimentoController.listaartigo);
 //router.post('/admin/secao/save',RegimentoController.savecapitulo);
 //router.delete('/admin/secao/delete',RegimentoController.deletesecao);
 
+//Rotas Regimento Artigo
+
+//router.get('/admin/secao/:id',RegimentoController.findSecao);
+router.post('/admin/paragrafo/new',RegimentoController.paragrafosave);
+router.post('/admin/paragrafo/list',RegimentoController.listaparagrafo);
+//router.post('/admin/secao/edit',RegimentoController.editcapitulo);
+//router.post('/admin/secao/update',RegimentoController.updatecapitulo);
+//router.post('/admin/secao/save',RegimentoController.savecapitulo);
+//router.delete('/admin/secao/delete',RegimentoController.deletesecao);
+
 module.exports = router;
 

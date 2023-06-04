@@ -4,6 +4,7 @@ const Capitulo = require("../models/admin/capitulo");
 const Secao = require("../models/admin/secao");
 const Subsecao = require("../models/admin/subsecao");
 const Artigo = require("../models/admin/artigo");
+const Paragrafo = require("../models/admin/paragrafo");
 
 
 class RegimentoController{
@@ -213,6 +214,48 @@ class RegimentoController{
    async deletecapitulo(req, res) {
       var id =  req.params.id      
       await Capitulo.CapituloDelete(id);
+   
+
+   }   
+    //Administração Cadastro Paraágrafo do Regimento
+  
+    async findParagrafo(req, res){
+      var id = req.params.id;
+      var paragrafo = await Paragrafo.findById(id);
+      if(paragrafo == undefined){
+          res.status(404);
+          res.json({});
+      }else{
+          res.status(200)
+          res.json(capitulo);
+      }
+
+   }
+   async paragrafosave(req, res) {
+
+      var {id_artigo, paragrafo} = req.body;       
+      
+      await Paragrafo.ParagrafoSave(id_artigo, paragrafo);
+     
+   }
+   async listaparagrafo(req, res) {
+
+      var paragrafos = await Paragrafo.findAll();
+      res.json(paragrafos);  
+
+
+   }
+   async updateparagrafos(req, res) {
+
+      var {id, id_artigo, paragrafo} = req.body;
+      
+      await Paragrafo.ParagrafoUpdate(id, id_artigo, paragrafo);
+            
+   }
+ 
+   async deleteparagrafo(req, res) {
+      var id =  req.params.id      
+      await Paragrafo.ParagrafoDelete(id);
    
 
    }   
