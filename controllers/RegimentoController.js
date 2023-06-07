@@ -191,9 +191,9 @@ class RegimentoController{
    }
    async artigosave(req, res) {
 
-      var {id_titulo, id_capitulo, id_secao, id_subsecao, artigo, conteudo} = req.body;       
+      var {id_titulo, id_capitulo, id_secao, id_subsecao, artigo, caput} = req.body;       
       
-      await Artigo.ArtigoSave(id_titulo, id_capitulo, id_secao, id_subsecao, artigo, conteudo);
+      await Artigo.ArtigoSave(id_titulo, id_capitulo, id_secao, id_subsecao, artigo, caput);
       
    }
    async listaartigo(req, res) {

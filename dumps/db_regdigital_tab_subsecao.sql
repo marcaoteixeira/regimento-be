@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
 --
 -- Host: localhost    Database: db_regdigital
 -- ------------------------------------------------------
--- Server version	8.0.32
+-- Server version	8.0.27
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -30,8 +30,12 @@ CREATE TABLE `tab_subsecao` (
   `subsecao` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `subsecao->secao` (`id_secao`),
+  KEY `id_titulo` (`id_titulo`),
+  KEY `id_capitulo` (`id_capitulo`),
+  CONSTRAINT `FK_tab_subsecao_tab_capitulo` FOREIGN KEY (`id_capitulo`) REFERENCES `tab_capitulo` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `FK_tab_subsecao_tab_titulo` FOREIGN KEY (`id_titulo`) REFERENCES `tab_titulo` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `subsecao->secao` FOREIGN KEY (`id_secao`) REFERENCES `tab_secao` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Sub seções do RIC CD';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Sub seções do RIC CD';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +44,7 @@ CREATE TABLE `tab_subsecao` (
 
 LOCK TABLES `tab_subsecao` WRITE;
 /*!40000 ALTER TABLE `tab_subsecao` DISABLE KEYS */;
-INSERT INTO `tab_subsecao` VALUES (1,2,21,7,'Subseção I – Da Composição e Instalação'),(2,2,21,7,'Subseção II – Das Subcomissões e Turmas'),(3,2,21,7,'Subseção III – Das Matérias ou Atividades de Competência das Comissões'),(4,2,21,8,'Subseção I – Das Comissões Especiais '),(5,2,21,8,'Subseção II – Das Comissões Parlamentares de Inquérito'),(6,2,21,8,'Subseção III – Das Comissões Externas'),(7,2,21,13,'Subseção I – Da Ordem dos Trabalhos'),(8,2,21,13,'Subseção II – Dos Prazos ');
+INSERT INTO `tab_subsecao` VALUES (1,2,23,7,'Subseção I – Da Composição e Instalação'),(2,2,23,7,'Subseção II – Das Subcomissões e Turmas'),(3,2,23,7,'Subseção III – Das Matérias ou Atividades de Competência das Comissões'),(4,2,23,8,'Subseção I – Das Comissões Especiais'),(5,2,23,8,'Subseção II – Das Comissões Parlamentares de Inquérito'),(6,2,23,8,'Subseção III – Das Comissões Externas'),(7,2,23,13,'Subseção I – Da Ordem dos Trabalhos'),(8,2,23,13,'Subseção II – Dos Prazos'),(9,5,46,33,'Subseção I – Da Inscrição de Debatedores'),(10,5,46,33,'Subseção II – Do Uso da Palavra'),(11,5,46,33,'Subseção III – Do Aparte');
 /*!40000 ALTER TABLE `tab_subsecao` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-04 18:13:31
+-- Dump completed on 2023-06-07 10:00:23

@@ -5,7 +5,7 @@ var knex = require("../../database/conection");
 class Artigo{
     async findAll(){
         try{
-             var result = await knex.select(['id', 'id_titulo', 'id_capitulo','id_secao', 'id_subsecao', 'artigo', 'conteudo']).table("tab_artigo");            
+             var result = await knex.select(['id', 'id_titulo', 'id_capitulo','id_secao', 'id_subsecao', 'artigo', 'caput']).table("tab_artigo");            
              return result;
          }catch(err){
              console.log(err);
@@ -24,9 +24,9 @@ class Artigo{
 
         }
     }
-    async ArtigoSave(id_titulo, id_capitulo, id_secao, id_subsecao, artigo, conteudo){
+    async ArtigoSave(id_titulo, id_capitulo, id_secao, id_subsecao, artigo, caput){
         try{                       
-            await knex.insert({ id_titulo, id_capitulo, id_secao, id_subsecao, artigo, conteudo }).table("tab_artigo");
+            await knex.insert({ id_titulo, id_capitulo, id_secao, id_subsecao, artigo, caput }).table("tab_artigo");
             console.log("Cadastro com sucesso!!!")
 
         }catch(error){
