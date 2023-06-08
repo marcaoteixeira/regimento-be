@@ -234,9 +234,9 @@ class RegimentoController{
    }
    async paragrafosave(req, res) {
 
-      var {id_artigo, paragrafo} = req.body;       
+      var {id_artigo, paragrafo, caput} = req.body;       
       
-      await Paragrafo.ParagrafoSave(id_artigo, paragrafo);
+      await Paragrafo.ParagrafoSave(id_artigo, paragrafo, caput);
      
    }
    async listaparagrafo(req, res) {
@@ -248,9 +248,9 @@ class RegimentoController{
    }
    async updateparagrafos(req, res) {
 
-      var {id, id_artigo, paragrafo} = req.body;
+      var {id, id_artigo, paragrafo, caput} = req.body;
       
-      await Paragrafo.ParagrafoUpdate(id, id_artigo, paragrafo);
+      await Paragrafo.ParagrafoUpdate(id, id_artigo, paragrafo, caput);
             
    }
  

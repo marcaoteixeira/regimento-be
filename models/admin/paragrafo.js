@@ -5,7 +5,7 @@ var knex = require("../../database/conection");
 class Paragrafo{
     async findAll(){
        try{
-            var result = await knex.select(['id', 'id_artigo','paragrafo']).table("tab_paragrafo");            
+            var result = await knex.select(['id', 'id_artigo','paragrafo', 'caput']).table("tab_paragrafo");            
             return result;
         }catch(err){
             console.log(err);
@@ -14,7 +14,7 @@ class Paragrafo{
     }
     async findById(id){
         try{
-            var result = await knex.select(['id', 'id_artigo','paragrafo']).where({id:id}).table("tab_paragrafo");
+            var result = await knex.select(['id', 'id_artigo','paragrafo','caput']).where({id:id}).table("tab_paragrafo");
             
             if(result.length > 0){
                 return result[0];
@@ -28,9 +28,9 @@ class Paragrafo{
         }
          
     }
-    async ParagrafoSave(id_artigo, paragrafo){
+    async ParagrafoSave(id_artigo, paragrafo, caput){
         try{                       
-            await knex.insert({ id_artigo, paragrafo}).table("tab_paragrafo");
+            await knex.insert({ id_artigo, paragrafo, caput}).table("tab_paragrafo");
             console.log("Cadastro com sucesso!!!")
 
         }catch(error){
@@ -39,9 +39,9 @@ class Paragrafo{
 
         }
     }  
-    async ParagrafoUpdate(id, titulo){
+    async ParagrafoUpdate(id, id_artigo, paragrafo, caput){
         try{                       
-            await knex.where({id: id}).update({ id_artigo, paragrafo}).table("tab_paragrafo")
+            await knex.where({id: id}).update({ id_artigo, paragrafo, caput}).table("tab_paragrafo")
             console.log("Alterado com sucesso com sucesso!!!")
 
         }catch(error){
