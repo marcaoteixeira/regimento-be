@@ -5,6 +5,7 @@ const Secao = require("../models/admin/secao");
 const Subsecao = require("../models/admin/subsecao");
 const Artigo = require("../models/admin/artigo");
 const Paragrafo = require("../models/admin/paragrafo");
+const Inciso = require("../models/admin/inciso");
 
 
 class RegimentoController{
@@ -256,6 +257,48 @@ class RegimentoController{
    async deleteparagrafo(req, res) {
       var id =  req.params.id      
       await Paragrafo.ParagrafoDelete(id);
+   
+
+   }   
+   //Administração Cadastro Inciso do Regimento
+  
+   async findInciso(req, res){
+      var id = req.params.id;
+      var inciso = await Inciso.findById(id);
+      if(inciso == undefined){
+          res.status(404);
+          res.json({});
+      }else{
+          res.status(200)
+          res.json(inciso);
+      }
+
+   }
+   async incisosave(req, res) {
+
+      var {id_artigo, id_paragrafo, inciso} = req.body;       
+      
+      await Inciso.IncisoSave(id_artigo, id_paragrafo, inciso);
+     
+   }
+   async listainciso(req, res) {
+
+      var incisos = await Inciso.findAll();
+      res.json(incisos);  
+
+
+   }
+   async updateinciso(req, res) {
+
+      var {id, id_artigo, id_paragrafo, inciso} = req.body;
+      
+      await Inciso.IncisoUpdate(id, id_artigo, id_paragrafo, inciso);
+            
+   }
+ 
+   async deleteinciso(req, res) {
+      var id =  req.params.id      
+      await Inciso.IncisoDelete(id);
    
 
    }   
