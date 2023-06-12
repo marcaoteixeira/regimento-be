@@ -120,8 +120,8 @@ router.post('/admin/paragrafo/list',RegimentoController.listaparagrafo);
 //Rotas Regimento Inciso
 
 //router.get('/admin/secao/:id',RegimentoController.findSecao);
-router.post('/admin/paragrafo/new',RegimentoController.incisosave);
-router.post('/admin/paragrafo/list',RegimentoController.listainciso);
+router.post('/admin/inciso/new',RegimentoController.incisosave);
+router.post('/admin/inciso/list',RegimentoController.listainciso);
 //router.post('/admin/secao/edit',RegimentoController.editcapitulo);
 //router.post('/admin/secao/update',RegimentoController.updatecapitulo);
 //router.post('/admin/secao/save',RegimentoController.savecapitulo);
