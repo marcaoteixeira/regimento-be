@@ -27,8 +27,8 @@ CREATE TABLE `tab_alineas` (
   `id_inciso` int unsigned NOT NULL,
   `alinea` longtext NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk-alinea-inciso` (`id_inciso`),
-  CONSTRAINT `fk-alinea-inciso` FOREIGN KEY (`id_inciso`) REFERENCES `tab_inciso` (`id`) ON UPDATE CASCADE
+  KEY `FK_tab_alineas_tab_inciso` (`id_inciso`),
+  CONSTRAINT `FK_tab_alineas_tab_inciso` FOREIGN KEY (`id_inciso`) REFERENCES `tab_inciso` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabelas de alineas do RICCD';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-29 10:12:27
+-- Dump completed on 2023-06-29 11:32:35

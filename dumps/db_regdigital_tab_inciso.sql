@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `tab_inciso`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tab_inciso` (
-  `id` int unsigned NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
   `id_artigo` int unsigned NOT NULL,
   `id_paragrafo` int unsigned DEFAULT NULL,
   `inciso` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE `tab_inciso` (
   KEY `FK_tab_inciso_tab_artigo` (`id_artigo`),
   CONSTRAINT `FK_tab_inciso_tab_artigo` FOREIGN KEY (`id_artigo`) REFERENCES `tab_artigo` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_tab_inciso_tab_paragrafo` FOREIGN KEY (`id_paragrafo`) REFERENCES `tab_paragrafo` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabela de incisos do RICD';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabela de incisos do RICD';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +41,7 @@ CREATE TABLE `tab_inciso` (
 
 LOCK TABLES `tab_inciso` WRITE;
 /*!40000 ALTER TABLE `tab_inciso` DISABLE KEYS */;
+INSERT INTO `tab_inciso` VALUES (1,2,NULL,'<p class=\"MsoNormal\" style=\"text-align: justify; text-indent: 2.0cm;\"><span style=\"font-size: 12.0pt; mso-bidi-font-size: 10.0pt;\">I - ordin&aacute;rias, de 2 de fevereiro a 17 de julho e de 1&ordm; de agosto a 22 de dezembro; <em style=\"mso-bidi-font-style: normal;\"><a href=\"http://www2.camara.gov.br/legin/fed/emecon/2006/emendaconstitucional-50-14-fevereiro-2006-541079-retificacao-43124-pl.html\">(Inciso com reda&ccedil;&atilde;o adaptada &agrave; Emenda Constitucional n&ordm; 50, de 2006,</a></em> <em style=\"mso-bidi-font-style: normal;\"><a href=\"http://www2.camara.leg.br/legin/int/atomes/2006/atodamesa-80-26-abril-2006-541993-publicacaooriginal-49059-cd-mesa.html\">conforme Ato da Mesa n&ordm; 80, de 2006)</a></em></span></p>'),(2,2,NULL,'<p class=\"MsoNormal\" style=\"text-align: justify; text-indent: 2.0cm;\"><span style=\"font-size: 12.0pt; mso-bidi-font-size: 10.0pt;\">II - extraordin&aacute;rias, quando, com este car&aacute;ter, for convocado o Congresso Nacional.&nbsp;</span></p>');
 /*!40000 ALTER TABLE `tab_inciso` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-29 10:12:28
+-- Dump completed on 2023-06-29 11:32:32
