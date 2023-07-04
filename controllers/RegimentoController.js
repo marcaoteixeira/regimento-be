@@ -276,9 +276,9 @@ class RegimentoController{
    }
    async incisosave(req, res) {
 
-      var {id_artigo, id_paragrafo, inciso} = req.body;       
+      var {id_artigo, id_paragrafo, inciso,caput} = req.body;       
       
-      await Inciso.IncisoSave(id_artigo, id_paragrafo, inciso);
+      await Inciso.IncisoSave(id_artigo, id_paragrafo, inciso, caput);
      
    }
    async listainciso(req, res) {
@@ -290,9 +290,9 @@ class RegimentoController{
    }
    async updateinciso(req, res) {
 
-      var {id, id_artigo, id_paragrafo, inciso} = req.body;
+      var {id, id_artigo, id_paragrafo, inciso, caput} = req.body;
       
-      await Inciso.IncisoUpdate(id, id_artigo, id_paragrafo, inciso);
+      await Inciso.IncisoUpdate(id, id_artigo, id_paragrafo, inciso,caput);
             
    }
  

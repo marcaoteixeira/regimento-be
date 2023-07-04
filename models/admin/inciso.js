@@ -28,9 +28,9 @@ class Inciso{
         }
          
     }
-    async IncisoSave(id_artigo, id_paragrafo, inciso){
+    async IncisoSave(id_artigo, id_paragrafo, inciso, caput){
         try{                       
-            await knex.insert({ id_artigo, id_paragrafo, inciso}).table("tab_inciso");
+            await knex.insert({ id_artigo, id_paragrafo, inciso, caput}).table("tab_inciso");
             console.log("Cadastro com sucesso!!!")
 
         }catch(error){
@@ -38,9 +38,9 @@ class Inciso{
 
         }
     }  
-    async IncisoUpdate(id, id_artigo,id_paragrafo, inciso){
+    async IncisoUpdate(id, id_artigo,id_paragrafo, inciso, caput){
         try{                       
-            await knex.where({id: id}).update({ id_artigo, id_paragrafo, inciso}).table("tab_inciso")
+            await knex.where({id: id}).update({ id_artigo, id_paragrafo, inciso, caput}).table("tab_inciso")
             console.log("Alterado com sucesso com sucesso!!!")
 
         }catch(error){
