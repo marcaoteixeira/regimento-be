@@ -127,5 +127,15 @@ router.post('/admin/inciso/list',RegimentoController.listainciso);
 //router.post('/admin/secao/save',RegimentoController.savecapitulo);
 //router.delete('/admin/secao/delete',RegimentoController.deletesecao);
 
+//Rotas Regimento Alinea
+
+//router.get('/admin/secao/:id',RegimentoController.findSecao);
+router.post('/admin/alinea/new',RegimentoController.alineasave);
+router.post('/admin/alinea/list',RegimentoController.listaalinea);
+//router.post('/admin/secao/edit',RegimentoController.editcapitulo);
+//router.post('/admin/secao/update',RegimentoController.updatecapitulo);
+//router.post('/admin/secao/save',RegimentoController.savecapitulo);
+//router.delete('/admin/secao/delete',RegimentoController.deletesecao);
+
 module.exports = router;
 

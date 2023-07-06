@@ -6,6 +6,7 @@ const Subsecao = require("../models/admin/subsecao");
 const Artigo = require("../models/admin/artigo");
 const Paragrafo = require("../models/admin/paragrafo");
 const Inciso = require("../models/admin/inciso");
+const Alinea = require("../models/admin/alinea");
 
 
 class RegimentoController{
@@ -302,6 +303,49 @@ class RegimentoController{
    
 
    }   
+
+   //Administração Cadastro Alinea do Regimento
+  
+   async findalinea(req, res){
+      var id = req.params.id;
+      var alinea = await Alinea.findById(id);
+      if(alinea == undefined){
+          res.status(404);
+          res.json({});
+      }else{
+          res.status(200)
+          res.json(alinea);
+      }
+
+   }
+   async alineasave(req, res) {
+
+      var {id_artigo, id_paragrafo, id_inciso, alinea} = req.body;       
+      
+      await Alinea.AlineaSave(id_artigo, id_paragrafo, id_inciso, alinea);
+     
+   }
+   async listaalinea(req, res) {
+
+      var alinea = await Alinea.findAll();
+      res.json(alinea);  
+
+
+   }
+   async updateinciso(req, res) {
+
+      var {id_artigo, id_paragrafo,id_inciso, alinea} = req.body;
+      
+      await Alinea.AlineUpdate(id_artigo, id_paragrafo, id_inciso, alinea);
+            
+   }
+ 
+   async deleteinciso(req, res) {
+      var id =  req.params.id      
+      await Alinea.AlineaDelete(id);
+   
+
+   }
 
 }
 
