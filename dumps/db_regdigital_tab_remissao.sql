@@ -16,27 +16,38 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tab_titulo`
+-- Table structure for table `tab_remissao`
 --
 
-DROP TABLE IF EXISTS `tab_titulo`;
+DROP TABLE IF EXISTS `tab_remissao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tab_titulo` (
+CREATE TABLE `tab_remissao` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `titulo` varchar(100) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabela de titulos do RICD';
+  `id_artigo` int unsigned DEFAULT '0',
+  `id_paragrafo` int unsigned DEFAULT '0',
+  `id_inciso` int unsigned DEFAULT '0',
+  `id_alinea` int unsigned DEFAULT '0',
+  `remissao` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  PRIMARY KEY (`id`),
+  KEY `FK_tab_remissao_tab_artigo` (`id_artigo`),
+  KEY `FK_tab_remissao_tab_paragrafo` (`id_paragrafo`),
+  KEY `FK_tab_remissao_tab_inciso` (`id_inciso`),
+  KEY `FK_tab_remissao_tab_alinea` (`id_alinea`),
+  CONSTRAINT `FK_tab_remissao_tab_alinea` FOREIGN KEY (`id_alinea`) REFERENCES `tab_alinea` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `FK_tab_remissao_tab_artigo` FOREIGN KEY (`id_artigo`) REFERENCES `tab_artigo` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `FK_tab_remissao_tab_inciso` FOREIGN KEY (`id_inciso`) REFERENCES `tab_inciso` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `FK_tab_remissao_tab_paragrafo` FOREIGN KEY (`id_paragrafo`) REFERENCES `tab_paragrafo` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tab_titulo`
+-- Dumping data for table `tab_remissao`
 --
 
-LOCK TABLES `tab_titulo` WRITE;
-/*!40000 ALTER TABLE `tab_titulo` DISABLE KEYS */;
-INSERT INTO `tab_titulo` VALUES (1,'TÍTULO I  - DISPOSIÇÕES PRELIMINARES '),(2,'TÍTULO II  - DOS ÓRGÃOS DA CÂMARA'),(3,'TÍTULO III - DAS SESSÕES DA CÂMARA'),(4,'TÍTULO IV - DAS PROPOSIÇÕES'),(5,'TÍTULO V - DA APRECIAÇÃO DAS PROPOSIÇÕES'),(6,'TÍTULO VI - DAS MATÉRIAS SUJEITAS A DISPOSIÇÕES ESPECIAIS'),(7,'TÍTULO VII -  DOS DEPUTADOS'),(8,'TÍTULO VIII - DA PARTICIPAÇÃO DA SOCIEDADE CIVIL'),(9,'TÍTULO  IX -  DA ADMINISTRAÇÃO E DA ECONOMIA INTERNA'),(10,'TÍTULO X - DAS DISPOSIÇÕES FINAIS');
-/*!40000 ALTER TABLE `tab_titulo` ENABLE KEYS */;
+LOCK TABLES `tab_remissao` WRITE;
+/*!40000 ALTER TABLE `tab_remissao` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tab_remissao` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-14 13:08:43
+-- Dump completed on 2023-07-14 13:08:42
