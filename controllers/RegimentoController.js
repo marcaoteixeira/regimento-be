@@ -53,7 +53,7 @@ class RegimentoController{
    }
    //Administração Cadastro Capitulo do Regimento
   
-   async findCapitulo(req, res){
+   async findcapitulo(req, res){
       var id = req.params.id;
       var capitulo = await Capitulo.findById(id);
       if(capitulo == undefined){
@@ -95,15 +95,15 @@ class RegimentoController{
    }   
     //Administração Cadastro Seção do Regimento
   
-    async findCapitulo(req, res){
+    async findsecao(req, res){
       var id = req.params.id;
-      var capitulo = await Capitulo.findById(id);
-      if(capitulo == undefined){
+      var secao = await Secao.findById(id);
+      if(secao == undefined){
           res.status(404);
           res.json({});
       }else{
           res.status(200)
-          res.json(capitulo);
+          res.json(secao);
       }
 
    }
@@ -121,17 +121,17 @@ class RegimentoController{
  
 
    }
-   async updatecapitulo(req, res) {
+   async updatesecao(req, res) {
 
-      var {id, id_titulo, capitulo} = req.body;
+      var {id, id_titulo, id_capitulo, secao} = req.body;
       
-      await Capitulo.CapituloUpdate(id, id_titulo, capitulo);
+      await Secao.SecaoUpdate(id, id_titulo, id_capitulo, secao);
             
    }
  
-   async deletecapitulo(req, res) {
+   async deletesecao(req, res) {
       var id =  req.params.id      
-      await Capitulo.CapituloDelete(id);
+      await Secao.SecaoDelete(id);
    
 
    }   
@@ -163,7 +163,7 @@ class RegimentoController{
  
 
    }
-   async updatecapitulo(req, res) {
+   async updatesubsecao(req, res) {
 
       var {id, id_titulo, capitulo} = req.body;
       
@@ -171,7 +171,7 @@ class RegimentoController{
             
    }
  
-   async deletecapitulo(req, res) {
+   async deletesubsecao(req, res) {
       var id =  req.params.id      
       await Capitulo.CapituloDelete(id);
    

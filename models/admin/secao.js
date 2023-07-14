@@ -12,24 +12,18 @@ class Secao{
              return[];
          }
      }
-    async cfindAll(){
-        try{
-            var result = await knex.select("*").table("tab_capitulo");            
-            return result;
-        }catch(error){
-            console.log(error);
-            return[];
-        }
-    }
-    async findById(secao){
-        try{           
-            var result  = await knex.where({id: secao}).table("tab_secao")
-            return result;
+    async findById(id) {
+        try {
+            var result = await knex.select(["id", "id_titulo", "id_capitulo", "secao"]).where({ id: id }).table("tab_secao");
+            if (result.length > 0) {
+                return result[0]; nn
+            } else {
+                return undefined;
+            }
 
-        }catch(error){
-            console.log(error);
-            return[];
-
+        } catch (err) {
+            console.log(err);
+            return undefined;
         }
     }
     async SecaoSave(id_titulo, id_capitulo, secao){
@@ -43,14 +37,14 @@ class Secao{
 
         }
     }  
-    async SecaoUpdate(id, secao){
-        try{                       
-            await knex.where({id: id}).update({ secao }).table("tab_secao")
+    async SecaoUpdate(id, id_titulo, id_capitulo, secao){
+        try{
+            
+            await knex.where({id: id}).update({ id_titulo, id_capitulo, secao }).table("tab_secao")
             console.log("Alterado com sucesso com sucesso!!!")
 
         }catch(error){
-            console.log(error);
-            
+            console.log(error);         
 
         }
     } 
