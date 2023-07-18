@@ -16,38 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tab_remissao`
+-- Table structure for table `tab_bloco`
 --
 
-DROP TABLE IF EXISTS `tab_remissao`;
+DROP TABLE IF EXISTS `tab_bloco`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tab_remissao` (
+CREATE TABLE `tab_bloco` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `id_artigo` int unsigned DEFAULT '0',
-  `id_paragrafo` int unsigned DEFAULT '0',
-  `id_inciso` int unsigned DEFAULT '0',
-  `id_alinea` int unsigned DEFAULT '0',
-  `remissao` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  PRIMARY KEY (`id`),
-  KEY `FK_tab_remissao_tab_artigo` (`id_artigo`),
-  KEY `FK_tab_remissao_tab_paragrafo` (`id_paragrafo`),
-  KEY `FK_tab_remissao_tab_inciso` (`id_inciso`),
-  KEY `FK_tab_remissao_tab_alinea` (`id_alinea`),
-  CONSTRAINT `FK_tab_remissao_tab_alinea` FOREIGN KEY (`id_alinea`) REFERENCES `tab_alinea` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `FK_tab_remissao_tab_artigo` FOREIGN KEY (`id_artigo`) REFERENCES `tab_artigo` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `FK_tab_remissao_tab_inciso` FOREIGN KEY (`id_inciso`) REFERENCES `tab_inciso` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `FK_tab_remissao_tab_paragrafo` FOREIGN KEY (`id_paragrafo`) REFERENCES `tab_paragrafo` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `bloco` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tab_remissao`
+-- Dumping data for table `tab_bloco`
 --
 
-LOCK TABLES `tab_remissao` WRITE;
-/*!40000 ALTER TABLE `tab_remissao` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tab_remissao` ENABLE KEYS */;
+LOCK TABLES `tab_bloco` WRITE;
+/*!40000 ALTER TABLE `tab_bloco` DISABLE KEYS */;
+INSERT INTO `tab_bloco` VALUES (1,'Remissão'),(2,'Jurisprudência'),(3,'Observações');
+/*!40000 ALTER TABLE `tab_bloco` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -59,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-14 13:08:42
+-- Dump completed on 2023-07-18 14:59:15

@@ -16,38 +16,42 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tab_jurisprudencia`
+-- Table structure for table `tab_facilidade`
 --
 
-DROP TABLE IF EXISTS `tab_jurisprudencia`;
+DROP TABLE IF EXISTS `tab_facilidade`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tab_jurisprudencia` (
+CREATE TABLE `tab_facilidade` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id_bloco` int unsigned DEFAULT '0',
   `id_artigo` int unsigned DEFAULT '0',
+  `titulo` int unsigned DEFAULT '0',
   `id_paragrafo` int unsigned DEFAULT '0',
   `id_inciso` int unsigned DEFAULT '0',
   `id_alinea` int unsigned DEFAULT '0',
-  `jurisprudencia` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `facilidade` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   KEY `FK_tab_remissao_tab_artigo` (`id_artigo`) USING BTREE,
   KEY `FK_tab_remissao_tab_paragrafo` (`id_paragrafo`) USING BTREE,
   KEY `FK_tab_remissao_tab_inciso` (`id_inciso`) USING BTREE,
   KEY `FK_tab_remissao_tab_alinea` (`id_alinea`) USING BTREE,
-  CONSTRAINT `tab_jurisprudencia_ibfk_1` FOREIGN KEY (`id_alinea`) REFERENCES `tab_alinea` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `tab_jurisprudencia_ibfk_2` FOREIGN KEY (`id_artigo`) REFERENCES `tab_artigo` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `tab_jurisprudencia_ibfk_3` FOREIGN KEY (`id_inciso`) REFERENCES `tab_inciso` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `tab_jurisprudencia_ibfk_4` FOREIGN KEY (`id_paragrafo`) REFERENCES `tab_paragrafo` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+  KEY `FK_tab_facilidades_tab_bloco` (`id_bloco`),
+  CONSTRAINT `FK_tab_facilidades_tab_bloco` FOREIGN KEY (`id_bloco`) REFERENCES `tab_bloco` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `tab_facilidade_ibfk_1` FOREIGN KEY (`id_alinea`) REFERENCES `tab_alinea` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `tab_facilidade_ibfk_2` FOREIGN KEY (`id_artigo`) REFERENCES `tab_artigo` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `tab_facilidade_ibfk_3` FOREIGN KEY (`id_inciso`) REFERENCES `tab_inciso` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `tab_facilidade_ibfk_4` FOREIGN KEY (`id_paragrafo`) REFERENCES `tab_paragrafo` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='Tabela de facilidades do regimento Facilitados da Cãmara dos Deputados';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tab_jurisprudencia`
+-- Dumping data for table `tab_facilidade`
 --
 
-LOCK TABLES `tab_jurisprudencia` WRITE;
-/*!40000 ALTER TABLE `tab_jurisprudencia` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tab_jurisprudencia` ENABLE KEYS */;
+LOCK TABLES `tab_facilidade` WRITE;
+/*!40000 ALTER TABLE `tab_facilidade` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tab_facilidade` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -59,4 +63,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-14 13:08:43
+-- Dump completed on 2023-07-18 14:59:15
