@@ -7,10 +7,21 @@ const Artigo = require("../models/admin/artigo");
 const Paragrafo = require("../models/admin/paragrafo");
 const Inciso = require("../models/admin/inciso");
 const Alinea = require("../models/admin/alinea");
+const Bloco = require("../models/admin/bloco");
+const Facilidade = require("../models/admin/facilidade.js");
 
 
 class RegimentoController{
 
+   //Administração Blocos Titulo do Regimento
+
+   async listabloco(req, res) {
+
+      var blocos = await Bloco.findAll();
+      res.json(blocos);
+
+     
+   }
    //Administração Cadastro Titulo do Regimento
 
    async findTitulo(req, res){
@@ -343,6 +354,48 @@ class RegimentoController{
    async deleteinciso(req, res) {
       var id =  req.params.id      
       await Alinea.AlineaDelete(id);
+   
+
+   }
+   //Administração Cadastro Alinea do Regimento
+  
+   async findfacilidade(req, res){
+      var id = req.params.id;
+      var alinea = await Alinea.findById(id);
+      if(alinea == undefined){
+          res.status(404);
+          res.json({});
+      }else{
+          res.status(200)
+          res.json(alinea);
+      }
+
+   }
+   async facilidadesave(req, res) {
+
+      var {id_bloco, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade} = req.body;       
+      
+      await Facilidade.FacilidadeSave(id_bloco, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade);
+     
+   }
+   async listafacilidade(req, res) {
+
+      var facilidade = await Facilidade.findAll();
+      res.json(facilidade);  
+
+
+   }
+   async updatefacilidade(req, res) {
+
+      var {id_bloco, id_artigo, id_paragrafo,id_inciso, alinea} = req.body;
+      
+      await Facilidade.FacilidadeUpdate(id_bloco, id_artigo, id_paragrafo, id_inciso, alinea);
+            
+   }
+ 
+   async deletefacilidade(req, res) {
+      var id =  req.params.id      
+      await Facilidade.FacilidadeDelete(id);
    
 
    }

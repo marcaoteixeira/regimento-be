@@ -132,5 +132,17 @@ router.post('/admin/alinea/list',RegimentoController.listaalinea);
 //router.post('/admin/secao/save',RegimentoController.savecapitulo);
 //router.delete('/admin/secao/delete',RegimentoController.deletesecao);
 
+//Rotas Regimento Blocos
+
+router.post('/admin/bloco/list',RegimentoController.listabloco);
+
+//Rotas Regimento facilidade
+
+router.get('/admin/facilidade/:id',RegimentoController.findfacilidade);
+router.post('/admin/facilidade/new',RegimentoController.facilidadesave);
+router.post('/admin/facilidade/list',RegimentoController.listafacilidade);
+router.put('/admin/facilidade/update',RegimentoController.updatefacilidade);
+router.delete('/admin/facilidade/delete/:id',RegimentoController.deletefacilidade);
+
 module.exports = router;
 
