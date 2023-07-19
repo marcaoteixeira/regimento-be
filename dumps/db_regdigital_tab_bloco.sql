@@ -26,7 +26,7 @@ CREATE TABLE `tab_bloco` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `bloco` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,7 @@ CREATE TABLE `tab_bloco` (
 
 LOCK TABLES `tab_bloco` WRITE;
 /*!40000 ALTER TABLE `tab_bloco` DISABLE KEYS */;
-INSERT INTO `tab_bloco` VALUES (1,'Remissão'),(2,'Jurisprudência'),(3,'Observações');
+INSERT INTO `tab_bloco` VALUES (1,'Remissão'),(2,'Jurisprudência'),(3,'Observações'),(4,'Notas');
 /*!40000 ALTER TABLE `tab_bloco` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-18 14:59:15
+-- Dump completed on 2023-07-19 19:05:08
