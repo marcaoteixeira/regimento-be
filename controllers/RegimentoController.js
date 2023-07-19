@@ -373,9 +373,9 @@ class RegimentoController{
    }
    async facilidadesave(req, res) {
 
-      var {id_bloco, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade} = req.body;       
+      var {id_bloco, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade} = req.body;       
       
-      await Facilidade.FacilidadeSave(id_bloco, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade);
+      await Facilidade.FacilidadeSave(id_bloco, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade);
      
    }
    async listafacilidade(req, res) {
@@ -387,9 +387,9 @@ class RegimentoController{
    }
    async updatefacilidade(req, res) {
 
-      var {id_bloco, id_artigo, id_paragrafo,id_inciso, alinea} = req.body;
+      var {id_bloco, id_titulo,id_capitulo, id_secao, id_subsecao,  id_artigo, id_paragrafo,id_inciso, alinea} = req.body;
       
-      await Facilidade.FacilidadeUpdate(id_bloco, id_artigo, id_paragrafo, id_inciso, alinea);
+      await Facilidade.FacilidadeUpdate(id_bloco, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, alinea);
             
    }
  

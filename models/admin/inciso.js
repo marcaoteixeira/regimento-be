@@ -5,7 +5,7 @@ var knex = require("../../database/conection");
 class Inciso{
     async findAll(){
        try{
-            var result = await knex.select(['id', 'id_artigo','id_paragrafo', 'inciso']).table("tab_inciso");            
+            var result = await knex.select(['id', 'id_artigo','id_paragrafo', 'inciso', 'caput']).table("tab_inciso");            
             return result;
         }catch(err){
             console.log(err);
@@ -14,7 +14,7 @@ class Inciso{
     }
     async findById(id){
         try{
-            var result = await knex.select(['id', 'id_artigo','id_paragrafo', 'inciso']).where({id:id}).table("tab_inciso");
+            var result = await knex.select(['id', 'id_artigo','id_paragrafo', 'inciso', 'caput']).where({id:id}).table("tab_inciso");
             
             if(result.length > 0){
                 return result[0];

@@ -28,9 +28,9 @@ class Facilidade{
         }
          
     }
-    async FacilidadeSave(id_bloco, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade){
+    async FacilidadeSave(id_bloco, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade){
         try{                       
-            await knex.insert({ id_bloco, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade}).table("tab_facilidade");
+            await knex.insert({ id_bloco, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade}).table("tab_facilidade");
             console.log("Cadastro com sucesso!!!")
 
         }catch(error){
@@ -38,9 +38,9 @@ class Facilidade{
 
         }
     }  
-    async FacilidadeUpdate(id, id_bloco, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade){
+    async FacilidadeUpdate(id, id_bloco, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade){
         try{                       
-            await knex.where({id: id}).update({ id_bloco, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade}).table("tab_facilidade")
+            await knex.where({id: id}).update({ id_bloco, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade}).table("tab_facilidade")
             console.log("Alterado com sucesso com sucesso!!!")
 
         }catch(error){
