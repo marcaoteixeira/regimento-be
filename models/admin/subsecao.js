@@ -12,24 +12,18 @@ class Subsecao{
              return[];
          }
      }
-    async cfindAll(){
-        try{
-            var result = await knex.select("*").table("tab_subsecao");            
-            return result;
-        }catch(error){
-            console.log(error);
-            return[];
-        }
-    }
-    async findById(secao){
-        try{           
-            var result  = await knex.where({id: secao}).table("tab_subsecao")
-            return result;
+    async findById(id){
+        try {
+            var result = await knex.select(["id", "id_titulo", "id_capitulo", "id_secao", "subsecao"]).where({ id: id }).table("tab_subsecao");
+            if (result.length > 0) {
+                return result[0]; 
+            } else {
+                return undefined;
+            }
 
-        }catch(error){
-            console.log(error);
-            return[];
-
+        } catch (err) {
+            console.log(err);
+            return undefined;
         }
     }
     async SubsecaoSave(id_titulo, id_capitulo, id_secao, subsecao){
@@ -43,9 +37,9 @@ class Subsecao{
 
         }
     }  
-    async SecaoUpdate(id, secao){
+    async SubsecaoUpdate(id, id_titulo, id_capitulo, id_secao, subsecao){
         try{                       
-            await knex.where({id: id}).update({ secao }).table("tab_secao")
+            await knex.where({id: id}).update({ id_titulo, id_capitulo, id_secao, subsecao  }).table("tab_subsecao")
             console.log("Alterado com sucesso com sucesso!!!")
 
         }catch(error){
@@ -54,10 +48,11 @@ class Subsecao{
 
         }
     } 
-    async SecaoDelete(id){
+    async SubsecaoDelete(id){
+        
         try{                       
-            await knex.where({id: id}).delete().table("tab_secao")
-            console.log("Seção excluida com sucesso!!!")            
+            await knex.where({id: id}).delete().table("tab_subsecao")
+            console.log("Subseção excluida com sucesso!!!")            
 
         }catch(error){
             console.log(error);            

@@ -13,15 +13,18 @@ class Artigo{
          }
      }
    
-    async findById(secao){
-        try{           
-            var result  = await knex.where({id: secao}).table("tab_subsecao")
-            return result;
+    async findById(id){
+        try {
+            var result = await knex.select(['id', 'id_titulo', 'id_capitulo','id_secao', 'id_subsecao', 'artigo', 'caput']).where({ id: id }).table("tab_artigo");
+            if (result.length > 0) {
+                return result[0]; 
+            } else {
+                return undefined;
+            }
 
-        }catch(error){
-            console.log(error);
-            return[];
-
+        } catch (err) {
+            console.log(err);
+            return undefined;
         }
     }
     async ArtigoSave(id_titulo, id_capitulo, id_secao, id_subsecao, artigo, caput){
@@ -35,9 +38,9 @@ class Artigo{
 
         }
     }  
-    async SecaoUpdate(id, secao){
+    async ArtigoUpdate(id, id_titulo, id_capitulo, id_secao, id_subsecao, artigo, caput){
         try{                       
-            await knex.where({id: id}).update({ secao }).table("tab_secao")
+            await knex.where({id: id}).update({ id_titulo, id_capitulo, id_secao, id_subsecao, artigo, caput}).table("tab_artigo")
             console.log("Alterado com sucesso com sucesso!!!")
 
         }catch(error){
@@ -46,10 +49,10 @@ class Artigo{
 
         }
     } 
-    async SecaoDelete(id){
+    async ArtigoDelete(id){
         try{                       
-            await knex.where({id: id}).delete().table("tab_secao")
-            console.log("Seção excluida com sucesso!!!")            
+            await knex.where({id: id}).delete().table("tab_artigo")
+            console.log("Artigo excluido com sucesso!!!")            
 
         }catch(error){
             console.log(error);            

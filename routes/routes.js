@@ -85,22 +85,20 @@ router.delete('/admin/secao/delete/:id',RegimentoController.deletesecao);
 
 //Rotas Regimento Subsessão
 
-//router.get('/admin/subsecao/:id',RegimentoController.findsubSecao);
-//router.post('/admin/subsecao/new',RegimentoController.subsecaosave);
+router.get('/admin/subsecao/:id',RegimentoController.findSubsecao);
+router.post('/admin/subsecao/new',RegimentoController.subsecaosave);
 router.post('/admin/subsecao/list',RegimentoController.listasubsecao);
 router.put('/admin/subsecao/update',RegimentoController.updatesubsecao);
-//router.delete('/admin/subsecao/delete',RegimentoController.deletesubsecao);
+router.delete('/admin/subsecao/delete/:id',RegimentoController.deletesubsecao);
 
 
 //Rotas Regimento Artigo
 
-//router.get('/admin/secao/:id',RegimentoController.findSecao);
+router.get('/admin/artigo/:id',RegimentoController.findartigo);
 router.post('/admin/artigo/new',RegimentoController.artigosave);
 router.post('/admin/artigo/list',RegimentoController.listaartigo);
-//router.post('/admin/secao/edit',RegimentoController.editcapitulo);
-//router.post('/admin/secao/update',RegimentoController.updatecapitulo);
-//router.post('/admin/secao/save',RegimentoController.savecapitulo);
-//router.delete('/admin/secao/delete',RegimentoController.deletesecao);
+router.put('/admin/artigo/update',RegimentoController.updateartigo);
+router.delete('/admin/artigo/delete/:id',RegimentoController.deleteartigo);
 
 //Rotas Regimento Parágrafo
 

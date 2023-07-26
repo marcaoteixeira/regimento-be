@@ -176,29 +176,29 @@ class RegimentoController{
    }
    async updatesubsecao(req, res) {
 
-      var {id, id_titulo, capitulo} = req.body;
+      var {id, id_titulo, id_capitulo,id_secao, subsecao} = req.body;
       
-      await Capitulo.CapituloUpdate(id, id_titulo, capitulo);
+      await Subsecao.SubsecaoUpdate(id, id_titulo, id_capitulo, id_secao, subsecao);
             
    }
  
    async deletesubsecao(req, res) {
       var id =  req.params.id      
-      await Capitulo.CapituloDelete(id);
+      await Subsecao.SubsecaoDelete(id);
    
 
    }   
    //Administração Cadastro Artigos do Regimento
   
-   async findSubsecao(req, res){
+   async findartigo(req, res){
       var id = req.params.id;
-      var subsecao = await Subsecao.findById(id);
-      if(subsecao == undefined){
+      var artigo = await Artigo.findById(id);
+      if(artigo == undefined){
           res.status(404);
           res.json({});
       }else{
           res.status(200)
-          res.json(subsecao);
+          res.json(artigo);
       }
 
    }
@@ -216,17 +216,17 @@ class RegimentoController{
  
 
    }
-   async updatecapitulo(req, res) {
+   async updateartigo(req, res) {
 
-      var {id, id_titulo, capitulo} = req.body;
+      var {id, id_titulo, id_capitulo, id_secao, id_subsecao, artigo, caput} = req.body;
       
-      await Capitulo.CapituloUpdate(id, id_titulo, capitulo);
+      await Artigo.ArtigoUpdate(id, id_titulo, id_capitulo, id_secao, id_subsecao, artigo, caput);
             
    }
  
-   async deletecapitulo(req, res) {
+   async deleteartigo(req, res) {
       var id =  req.params.id      
-      await Capitulo.CapituloDelete(id);
+      await Artigo.ArtigoDelete(id);
    
 
    }   

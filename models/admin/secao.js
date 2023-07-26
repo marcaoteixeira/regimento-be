@@ -16,7 +16,7 @@ class Secao{
         try {
             var result = await knex.select(["id", "id_titulo", "id_capitulo", "secao"]).where({ id: id }).table("tab_secao");
             if (result.length > 0) {
-                return result[0]; nn
+                return result[0]; 
             } else {
                 return undefined;
             }
