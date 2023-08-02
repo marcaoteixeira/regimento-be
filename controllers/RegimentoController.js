@@ -369,13 +369,13 @@ class RegimentoController{
   
    async findfacilidade(req, res){
       var id = req.params.id;
-      var alinea = await Alinea.findById(id);
-      if(alinea == undefined){
+      var facilidade = await Facilidade.findById(id);
+      if(facilidade == undefined){
           res.status(404);
           res.json({});
       }else{
           res.status(200)
-          res.json(alinea);
+          res.json(facilidade);
       }
 
    }
