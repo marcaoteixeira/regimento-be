@@ -5,7 +5,7 @@ var knex = require("../../database/conection");
 class Facilidade{
     async findAll(){
        try{
-            var result = await knex.select(['id', 'id_bloco', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea', 'facilidade']).table("tab_facilidades");            
+            var result = await knex.select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea', 'facilidade']).table("tab_facilidades");            
             return result;
         }catch(err){
             console.log(err);
@@ -14,7 +14,7 @@ class Facilidade{
     }
     async findById(id){
         try{
-            var result = await knex.select(['id', 'id_bloco', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea', 'facilidade']).where({id:id}).table("tab_facilidades");
+            var result = await knex.select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea', 'facilidade']).where({id:id}).table("tab_facilidades");
             
             if(result.length > 0){
                 return result[0];
@@ -28,9 +28,9 @@ class Facilidade{
         }
          
     }
-    async FacilidadeSave(id_bloco, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade){
+    async FacilidadeSave(id_bloco, id_tipo, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade){
         try{                       
-            await knex.insert({ id_bloco, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade}).table("tab_facilidade");
+            await knex.insert({ id_bloco, id_tipo, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade}).table("tab_facilidade");
             console.log("Cadastro com sucesso!!!")
 
         }catch(error){
@@ -38,9 +38,9 @@ class Facilidade{
 
         }
     }  
-    async FacilidadeUpdate(id, id_bloco, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade){
+    async FacilidadeUpdate(id, id_bloco, id_tipo, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade){
         try{                       
-            await knex.where({id: id}).update({ id_bloco, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade}).table("tab_facilidade")
+            await knex.where({id: id}).update({ id_bloco, id_tipo, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade}).table("tab_facilidade")
             console.log("Alterado com sucesso com sucesso!!!")
 
         }catch(error){

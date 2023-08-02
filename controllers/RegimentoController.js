@@ -8,6 +8,7 @@ const Paragrafo = require("../models/admin/paragrafo");
 const Inciso = require("../models/admin/inciso");
 const Alinea = require("../models/admin/alinea");
 const Bloco = require("../models/admin/bloco");
+const Tipo = require("../models/admin/tipofacilidade");
 const Facilidade = require("../models/admin/facilidade.js");
 
 
@@ -19,6 +20,13 @@ class RegimentoController{
 
       var blocos = await Bloco.findAll();
       res.json(blocos);
+
+     
+   }
+   async listatipo(req, res) {
+
+      var tipos = await Tipo.findAll();
+      res.json(tipos);
 
      
    }
@@ -373,9 +381,9 @@ class RegimentoController{
    }
    async facilidadesave(req, res) {
 
-      var {id_bloco, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade} = req.body;       
+      var {id_bloco, id_tipo,  id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade} = req.body;       
       
-      await Facilidade.FacilidadeSave(id_bloco, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade);
+      await Facilidade.FacilidadeSave(id_bloco, id_tipo, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade);
      
    }
    async listafacilidade(req, res) {
@@ -387,9 +395,9 @@ class RegimentoController{
    }
    async updatefacilidade(req, res) {
 
-      var {id_bloco, id_titulo,id_capitulo, id_secao, id_subsecao,  id_artigo, id_paragrafo,id_inciso, alinea} = req.body;
+      var {id_bloco,id_tipo, id_titulo,id_capitulo, id_secao, id_subsecao,  id_artigo, id_paragrafo,id_inciso, alinea} = req.body;
       
-      await Facilidade.FacilidadeUpdate(id_bloco, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, alinea);
+      await Facilidade.FacilidadeUpdate(id_bloco, id_tipo, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, alinea);
             
    }
  

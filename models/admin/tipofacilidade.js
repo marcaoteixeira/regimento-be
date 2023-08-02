@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 var knex = require("../../database/conection");
 
-class Bloco{
+class Tipo{
     async findAll(){
        try{
-            var result = await knex.select(['id', 'bloco']).table("tab_bloco");            
+            var result = await knex.select(['id', 'id_bloco', 'tipo']).table("tab_tipo");            
             return result;
         }catch(err){
             console.log(err);
@@ -14,7 +14,7 @@ class Bloco{
     }
     async findById(id){
         try{
-            var result = await knex.select(["id","bloco"]).where({id:id}).table("tab_bloco");
+            var result = await knex.select(['id', 'id_bloco', 'tipo']).where({id:id}).table("tab_tipo");
             
             if(result.length > 0){
                 return result[0];
@@ -28,9 +28,9 @@ class Bloco{
         }
          
     }
-    async BLocoSave(bloco){
+    async BLocoSave(id_bloco, tipo){
         try{                       
-            await knex.insert({ bloco }).table("tab_bloco");
+            await knex.insert({ id_bloco, tipo }).table("tab_tipo");
             console.log("Cadastro com sucesso!!!")
 
         }catch(error){
@@ -39,7 +39,7 @@ class Bloco{
 
         }
     }  
-    async BlocoUpdate(id, bloco){
+    async BlocoUpdate(id, id_bloco, tipo){
         try{                       
             await knex.where({id: id}).update({ bloco }).table("tab_bloco")
             console.log("Alterado com sucesso com sucesso!!!")
@@ -51,7 +51,7 @@ class Bloco{
     } 
     async BlocoDelete(id){
         try{                       
-            await knex.where({id: id}).delete().table("tab_bloco")
+            await knex.where({id: id}).delete().table("id_bloco, tipo")
             console.log("Bloco excluido com sucesso!!!")            
 
         }catch(error){
@@ -62,4 +62,4 @@ class Bloco{
 
 }
 
-module.exports = new Bloco();
+module.exports = new Tipo();

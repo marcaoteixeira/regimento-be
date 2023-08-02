@@ -134,6 +134,11 @@ router.post('/admin/alinea/list',RegimentoController.listaalinea);
 
 router.post('/admin/bloco/list',RegimentoController.listabloco);
 
+//Rotas Regimento Tipos
+
+router.post('/admin/tipo/list',RegimentoController.listatipo);
+
+
 //Rotas Regimento facilidade
 
 router.get('/admin/facilidade/:id',RegimentoController.findfacilidade);
