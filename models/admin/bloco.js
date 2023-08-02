@@ -5,7 +5,7 @@ var knex = require("../../database/conection");
 class Bloco{
     async findAll(){
        try{
-            var result = await knex.select(['id', 'bloco']).table("tab_bloco");            
+            var result = await knex.select(['id', 'bloco', 'dispositivo']).table("tab_bloco");            
             return result;
         }catch(err){
             console.log(err);
@@ -14,7 +14,7 @@ class Bloco{
     }
     async findById(id){
         try{
-            var result = await knex.select(["id","bloco"]).where({id:id}).table("tab_bloco");
+            var result = await knex.select(["id","bloco","dispositivo"]).where({id:id}).table("tab_bloco");
             
             if(result.length > 0){
                 return result[0];
@@ -30,7 +30,7 @@ class Bloco{
     }
     async BLocoSave(bloco){
         try{                       
-            await knex.insert({ bloco }).table("tab_bloco");
+            await knex.insert({ bloco, dispositivo }).table("tab_bloco");
             console.log("Cadastro com sucesso!!!")
 
         }catch(error){
@@ -41,7 +41,7 @@ class Bloco{
     }  
     async BlocoUpdate(id, bloco){
         try{                       
-            await knex.where({id: id}).update({ bloco }).table("tab_bloco")
+            await knex.where({id: id}).update({ bloco, dispositivo }).table("tab_bloco")
             console.log("Alterado com sucesso com sucesso!!!")
 
         }catch(error){
