@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.33, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
 -- Host: localhost    Database: db_regdigital
 -- ------------------------------------------------------
--- Server version	8.0.33-0ubuntu0.22.04.1
+-- Server version	8.0.32
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,29 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tab_prunico`
+-- Table structure for table `tab_tipo`
 --
 
-DROP TABLE IF EXISTS `tab_prunico`;
+DROP TABLE IF EXISTS `tab_tipo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tab_prunico` (
-  `id` int unsigned NOT NULL,
-  `id_artigo` int unsigned NOT NULL,
-  `prunico` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+CREATE TABLE `tab_tipo` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id_bloco` int unsigned NOT NULL,
+  `tipo` varchar(200) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `art=>prunico` (`id_artigo`),
-  CONSTRAINT `art=>prunico` FOREIGN KEY (`id_artigo`) REFERENCES `tab_artigo` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabela de parágafo único';
+  KEY `FK_tab_tipo_tab_bloco` (`id_bloco`),
+  CONSTRAINT `FK_tab_tipo_tab_bloco` FOREIGN KEY (`id_bloco`) REFERENCES `tab_bloco` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tipo de Facilidade';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tab_prunico`
+-- Dumping data for table `tab_tipo`
 --
 
-LOCK TABLES `tab_prunico` WRITE;
-/*!40000 ALTER TABLE `tab_prunico` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tab_prunico` ENABLE KEYS */;
+LOCK TABLES `tab_tipo` WRITE;
+/*!40000 ALTER TABLE `tab_tipo` DISABLE KEYS */;
+INSERT INTO `tab_tipo` VALUES (1,1,'Artigo'),(2,1,'Ato da Mesa '),(3,1,'Código de ética'),(4,1,'Lei '),(5,1,'Norma Interna (ato normativo) '),(6,1,'Regulamento '),(7,1,'Resolução '),(8,2,'QO'),(9,2,'Consulta '),(10,2,'Decisão da Presidência (Ato do Presidente)'),(11,2,'Decisão da Mesa '),(12,2,'REC'),(13,2,'REM '),(14,2,'STF - MS - ADI - HC '),(15,3,'Prática '),(16,3,'Precedente'),(17,3,'Observação'),(18,4,'Nota');
+/*!40000 ALTER TABLE `tab_tipo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-01 22:14:18
+-- Dump completed on 2023-08-02  9:17:49
