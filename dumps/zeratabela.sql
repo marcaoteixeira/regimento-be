@@ -1,1 +1,0 @@
-ALTER TABLE `tab_artigo` AUTO_INCREMENT=1

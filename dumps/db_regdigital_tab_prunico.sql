@@ -16,27 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tab_titulo`
+-- Table structure for table `tab_prunico`
 --
 
-DROP TABLE IF EXISTS `tab_titulo`;
+DROP TABLE IF EXISTS `tab_prunico`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tab_titulo` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `titulo` varchar(100) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabela de titulos do RICD';
+CREATE TABLE `tab_prunico` (
+  `id` int unsigned NOT NULL,
+  `id_artigo` int unsigned NOT NULL,
+  `prunico` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `art=>prunico` (`id_artigo`),
+  CONSTRAINT `art=>prunico` FOREIGN KEY (`id_artigo`) REFERENCES `tab_artigo` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabela de parágafo único';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tab_titulo`
+-- Dumping data for table `tab_prunico`
 --
 
-LOCK TABLES `tab_titulo` WRITE;
-/*!40000 ALTER TABLE `tab_titulo` DISABLE KEYS */;
-INSERT INTO `tab_titulo` VALUES (1,'TÍTULO I  - DISPOSIÇÕES PRELIMINARES '),(2,'TÍTULO II  - DOS ÓRGÃOS DA CÂMARA'),(3,'TÍTULO III - DAS SESSÕES DA CÂMARA'),(4,'TÍTULO IV - DAS PROPOSIÇÕES'),(5,'TÍTULO V - DA APRECIAÇÃO DAS PROPOSIÇÕES'),(6,'TÍTULO VI - DAS MATÉRIAS SUJEITAS A DISPOSIÇÕES ESPECIAIS'),(7,'TÍTULO VII -  DOS DEPUTADOS'),(8,'TÍTULO VIII - DA PARTICIPAÇÃO DA SOCIEDADE CIVIL'),(9,'TÍTULO  IX -  DA ADMINISTRAÇÃO E DA ECONOMIA INTERNA'),(10,'TÍTULO X - DAS DISPOSIÇÕES FINAIS');
-/*!40000 ALTER TABLE `tab_titulo` ENABLE KEYS */;
+LOCK TABLES `tab_prunico` WRITE;
+/*!40000 ALTER TABLE `tab_prunico` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tab_prunico` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
