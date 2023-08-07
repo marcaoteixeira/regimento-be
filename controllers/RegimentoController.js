@@ -9,7 +9,7 @@ const Inciso = require("../models/admin/inciso");
 const Alinea = require("../models/admin/alinea");
 const Bloco = require("../models/admin/bloco");
 const Tipo = require("../models/admin/tipofacilidade");
-const Facilidade = require("../models/admin/facilidade.js");
+const Conteudo = require("../models/admin/conteudo.js");
 
 
 class RegimentoController{
@@ -365,35 +365,35 @@ class RegimentoController{
    
 
    }
-   //Administração Cadastro Alinea do Regimento
+   //Administração Cadastro Conteúdo do Regimento
   
-   async findfacilidade(req, res){
+   async findconteudo(req, res){
       var id = req.params.id;
-      var facilidade = await Facilidade.findById(id);
-      if(facilidade == undefined){
+      var conteudo = await Conteudo.findById(id);
+      if(conteudo == undefined){
           res.status(404);
           res.json({});
       }else{
           res.status(200)
-          res.json(facilidade);
+          res.json(conteudo);
       }
 
    }
-   async facilidadesave(req, res) {
+   async conteudosave(req, res) {
 
       var {id_bloco, id_tipo,  id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade} = req.body;       
       
-      await Facilidade.FacilidadeSave(id_bloco, id_tipo, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade);
+      await Conteudo.ConteudoSave(id_bloco, id_tipo, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade);
      
    }
-   async listafacilidade(req, res) {
+   async listaconteudo(req, res) {
 
-      var facilidade = await Facilidade.findAll();
-      res.json(facilidade);  
+      var conteudo = await Conteudo.findAll();
+      res.json(conteudo);  
 
 
    }
-   async updatefacilidade(req, res) {
+   async updateconteudo(req, res) {
 
       var {id_bloco,id_tipo, id_titulo,id_capitulo, id_secao, id_subsecao,  id_artigo, id_paragrafo,id_inciso, alinea} = req.body;
       
@@ -401,9 +401,9 @@ class RegimentoController{
             
    }
  
-   async deletefacilidade(req, res) {
+   async deleteconteudo(req, res) {
       var id =  req.params.id      
-      await Facilidade.FacilidadeDelete(id);
+      await Conteudo.ConteudoDelete(id);
    
 
    }

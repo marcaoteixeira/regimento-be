@@ -139,13 +139,13 @@ router.post('/admin/bloco/list',RegimentoController.listabloco);
 router.post('/admin/tipo/list',RegimentoController.listatipo);
 
 
-//Rotas Regimento facilidade
+//Rotas Regimento conteúdo
 
-router.get('/admin/facilidade/:id',RegimentoController.findfacilidade);
-router.post('/admin/facilidade/new',RegimentoController.facilidadesave);
-router.post('/admin/facilidade/list',RegimentoController.listafacilidade);
-router.put('/admin/facilidade/update',RegimentoController.updatefacilidade);
-router.delete('/admin/facilidade/delete/:id',RegimentoController.deletefacilidade);
+router.get('/admin/conteudo/:id',RegimentoController.findconteudo);
+router.post('/admin/conteudo/new',RegimentoController.conteudosave);
+router.post('/admin/conteudo/list',RegimentoController.listaconteudo);
+router.put('/admin/conteudo/update',RegimentoController.updateconteudo);
+router.delete('/admin/conteudo/delete/:id',RegimentoController.deleteconteudo);
 
 module.exports = router;
 
