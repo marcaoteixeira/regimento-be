@@ -102,13 +102,11 @@ router.delete('/admin/artigo/delete/:id',RegimentoController.deleteartigo);
 
 //Rotas Regimento Parágrafo
 
-//router.get('/admin/secao/:id',RegimentoController.findSecao);
+router.get('/admin/paragrafo/:id',RegimentoController.findparagrafo);
 router.post('/admin/paragrafo/new',RegimentoController.paragrafosave);
 router.post('/admin/paragrafo/list',RegimentoController.listaparagrafo);
-//router.post('/admin/secao/edit',RegimentoController.editcapitulo);
-//router.post('/admin/secao/update',RegimentoController.updatecapitulo);
-//router.post('/admin/secao/save',RegimentoController.savecapitulo);
-//router.delete('/admin/secao/delete',RegimentoController.deletesecao);
+router.put('/admin/paragrafo/update',RegimentoController.updateparagrafo);
+router.delete('/admin/paragrafo/delete/:id',RegimentoController.deleteparagrafo);
 
 //Rotas Regimento Inciso
 

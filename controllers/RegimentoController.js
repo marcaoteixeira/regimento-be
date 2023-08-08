@@ -240,15 +240,15 @@ class RegimentoController{
    }   
     //Administração Cadastro Paraágrafo do Regimento
   
-    async findParagrafo(req, res){
+    async findparagrafo(req, res){
       var id = req.params.id;
-      var paragrafo = await Paragrafo.findById(id);
-      if(paragrafo == undefined){
+      var paragrafos = await Paragrafo.findById(id);
+      if(paragrafos == undefined){
           res.status(404);
           res.json({});
       }else{
           res.status(200)
-          res.json(capitulo);
+          res.json(paragrafos);
       }
 
    }
@@ -266,7 +266,7 @@ class RegimentoController{
 
 
    }
-   async updateparagrafos(req, res) {
+   async updateparagrafo(req, res) {
 
       var {id, id_artigo, paragrafo, caput} = req.body;
       
