@@ -378,7 +378,7 @@ class RegimentoController{
           res.json(conteudo);
       }
 
-   }
+   }  
    async conteudosave(req, res) {
 
       var {id_bloco, id_tipo,  id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade} = req.body;       
@@ -390,6 +390,13 @@ class RegimentoController{
 
       var conteudo = await Conteudo.findAll();
       res.json(conteudo);  
+
+
+   }
+   async listanota(req, res) {
+
+      var nota = await Conteudo.findAllnotas();
+      res.json(nota);  
 
 
    }

@@ -145,5 +145,9 @@ router.post('/admin/conteudo/list',RegimentoController.listaconteudo);
 router.put('/admin/conteudo/update',RegimentoController.updateconteudo);
 router.delete('/admin/conteudo/delete/:id',RegimentoController.deleteconteudo);
 
+//Rotas Regimento 
+router.post('/listnota',RegimentoController.listanota);
+
+
 module.exports = router;
 

@@ -12,6 +12,16 @@ class Conteudo{
             return[];
         }
     }
+    async findAllnotas(){
+        try{
+             //var result = await knex.select(['id', 'id_bloco', 'id_tipo', 'id_titulo' , 'id_capitulo' , 'id_secao' , 'id_subsecao','id_artigo','id_paragrafo', 'id_inciso','id_alinea', 'conteudo']).table("tab_conteudo"); 
+             var result = await knex('tab_conteudo').where({id_tipo: 18}).select(['id', 'id_bloco', 'id_tipo', 'id_titulo' , 'id_capitulo' , 'id_secao' , 'id_subsecao','id_artigo','id_paragrafo', 'id_inciso','id_alinea', 'conteudo']);
+             return result;
+         }catch(err){
+             console.log(err);
+             return[];
+         }
+    }
     async findById(id){
         try{
             var result = await knex.select(['id', 'id_bloco', 'id_tipo', 'id_titulo' , 'id_capitulo' , 'id_secao' , 'id_subsecao','id_artigo','id_paragrafo', 'id_inciso','id_alinea', 'conteudo']).where({id:id}).table("tab_conteudo");
