@@ -51,7 +51,7 @@ class Inciso{
     async IncisoDelete(id){
         try{                       
             await knex.where({id: id}).delete().table("tab_inciso")
-            console.log("Parágrafo excluido com sucesso!!!")            
+            console.log("Inciso excluido com sucesso!!!")            
 
         }catch(error){
             console.log(error);            

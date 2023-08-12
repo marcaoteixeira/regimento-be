@@ -318,10 +318,9 @@ class RegimentoController{
  
    async deleteinciso(req, res) {
       var id =  req.params.id      
-      await Inciso.IncisoDelete(id);
-   
+      await Inciso.IncisoDelete(id);   
 
-   }   
+   }      
 
    //Administração Cadastro Alinea do Regimento
   
@@ -351,15 +350,15 @@ class RegimentoController{
 
 
    }
-   async updateinciso(req, res) {
+   async updatealinea(req, res) {
 
       var {id_artigo, id_paragrafo,id_inciso, alinea} = req.body;
       
-      await Alinea.AlineUpdate(id_artigo, id_paragrafo, id_inciso, alinea);
+      await Alinea.AlineaUpdate(id_artigo, id_paragrafo, id_inciso, alinea);
             
    }
  
-   async deleteinciso(req, res) {
+   async deletealinea(req, res) {
       var id =  req.params.id      
       await Alinea.AlineaDelete(id);
    

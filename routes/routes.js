@@ -110,13 +110,11 @@ router.delete('/admin/paragrafo/delete/:id',RegimentoController.deleteparagrafo)
 
 //Rotas Regimento Inciso
 
-//router.get('/admin/secao/:id',RegimentoController.findSecao);
+router.get('/admin/inciso/:id',RegimentoController.findInciso);
 router.post('/admin/inciso/new',RegimentoController.incisosave);
 router.post('/admin/inciso/list',RegimentoController.listainciso);
-//router.post('/admin/secao/edit',RegimentoController.editcapitulo);
-//router.post('/admin/secao/update',RegimentoController.updatecapitulo);
-//router.post('/admin/secao/save',RegimentoController.savecapitulo);
-//router.delete('/admin/secao/delete',RegimentoController.deletesecao);
+router.put('/admin/inciso/update',RegimentoController.updateinciso);
+router.delete('/admin/inciso/delete/:id',RegimentoController.deleteinciso);
 
 //Rotas Regimento Alinea
 
