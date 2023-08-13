@@ -352,14 +352,14 @@ class RegimentoController{
    }
    async updatealinea(req, res) {
 
-      var {id_artigo, id_paragrafo,id_inciso, alinea} = req.body;
+      var {id, id_artigo, id_paragrafo,id_inciso, alinea} = req.body;
       
-      await Alinea.AlineaUpdate(id_artigo, id_paragrafo, id_inciso, alinea);
+      await Alinea.AlineaUpdate(id, id_artigo, id_paragrafo, id_inciso, alinea);
             
    }
  
    async deletealinea(req, res) {
-      var id =  req.params.id      
+      var id = req.params.id      
       await Alinea.AlineaDelete(id);
    
 

@@ -5,7 +5,7 @@ var knex = require("../../database/conection");
 class Alinea{
     async findAll(){
        try{
-            var result = await knex.select(['id', 'id_inciso','alinea']).table("tab_alinea");            
+            var result = await knex.select(['id', 'id_artigo','id_paragrafo','id_inciso','alinea']).table("tab_alinea");            
             return result;
         }catch(err){
             console.log(err);
@@ -14,7 +14,7 @@ class Alinea{
     }
     async findById(id){
         try{
-            var result = await knex.select(['id', 'id_inciso','alinea']).where({id:id}).table("tab_alinea");
+            var result = await knex.select(['id','id_artigo','id_paragrafo', 'id_inciso','alinea']).where({id:id}).table("tab_alinea");
             
             if(result.length > 0){
                 return result[0];
@@ -52,7 +52,7 @@ class Alinea{
     async AlineaDelete(id){
         try{                       
             await knex.where({id: id}).delete().table("tab_alinea")
-            console.log("Alinea excluido com sucesso!!!")            
+            console.log("Alinea excluida com sucesso!!!")            
 
         }catch(error){
             console.log(error);            
