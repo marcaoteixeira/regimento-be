@@ -16,27 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tab_tipoemenda`
+-- Table structure for table `tab_prunico`
 --
 
-DROP TABLE IF EXISTS `tab_tipoemenda`;
+DROP TABLE IF EXISTS `tab_prunico`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tab_tipoemenda` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `tipoemenda` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabela com os tipos de emendas';
+CREATE TABLE `tab_prunico` (
+  `id` int unsigned NOT NULL,
+  `id_artigo` int unsigned NOT NULL,
+  `prunico` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `art=>prunico` (`id_artigo`),
+  CONSTRAINT `art=>prunico` FOREIGN KEY (`id_artigo`) REFERENCES `tab_artigo` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabela de parágafo único';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tab_tipoemenda`
+-- Dumping data for table `tab_prunico`
 --
 
-LOCK TABLES `tab_tipoemenda` WRITE;
-/*!40000 ALTER TABLE `tab_tipoemenda` DISABLE KEYS */;
-INSERT INTO `tab_tipoemenda` VALUES (1,'PROPOSIÇÕES SUJEITAS À APRECIAÇÃO CONCLUSIVA PELAS COMISSÕES'),(2,'PROJETOS SUJEITOS Á APRECIAÇÃO DO PLENÁRIO'),(3,'PROPOSIÇÕES COM TRAMITAÇÃO ESPECIAL');
-/*!40000 ALTER TABLE `tab_tipoemenda` ENABLE KEYS */;
+LOCK TABLES `tab_prunico` WRITE;
+/*!40000 ALTER TABLE `tab_prunico` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tab_prunico` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

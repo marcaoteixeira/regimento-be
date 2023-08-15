@@ -16,27 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tab_tipoemenda`
+-- Table structure for table `tab_alineas`
 --
 
-DROP TABLE IF EXISTS `tab_tipoemenda`;
+DROP TABLE IF EXISTS `tab_alineas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tab_tipoemenda` (
+CREATE TABLE `tab_alineas` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `tipoemenda` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabela com os tipos de emendas';
+  `id_inciso` int unsigned NOT NULL,
+  `alinea` longtext NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_tab_alineas_tab_inciso` (`id_inciso`),
+  CONSTRAINT `FK_tab_alineas_tab_inciso` FOREIGN KEY (`id_inciso`) REFERENCES `tab_inciso` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabelas de alineas do RICCD';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tab_tipoemenda`
+-- Dumping data for table `tab_alineas`
 --
 
-LOCK TABLES `tab_tipoemenda` WRITE;
-/*!40000 ALTER TABLE `tab_tipoemenda` DISABLE KEYS */;
-INSERT INTO `tab_tipoemenda` VALUES (1,'PROPOSIÇÕES SUJEITAS À APRECIAÇÃO CONCLUSIVA PELAS COMISSÕES'),(2,'PROJETOS SUJEITOS Á APRECIAÇÃO DO PLENÁRIO'),(3,'PROPOSIÇÕES COM TRAMITAÇÃO ESPECIAL');
-/*!40000 ALTER TABLE `tab_tipoemenda` ENABLE KEYS */;
+LOCK TABLES `tab_alineas` WRITE;
+/*!40000 ALTER TABLE `tab_alineas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tab_alineas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

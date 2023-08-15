@@ -22,6 +22,15 @@ class Conteudo{
              return[];
          }
     }
+    async findAllqordem(){
+        try{
+             var result = await knex('tab_conteudo').where({id_tipo: 8}).select(['id', 'id_bloco', 'id_tipo', 'id_titulo' , 'id_capitulo' , 'id_secao' , 'id_subsecao','id_artigo','id_paragrafo', 'id_inciso','id_alinea', 'conteudo']);
+             return result;
+         }catch(err){
+             console.log(err);
+             return[];
+         }
+    }
     async findById(id){
         try{
             var result = await knex.select(['id', 'id_bloco', 'id_tipo', 'id_titulo' , 'id_capitulo' , 'id_secao' , 'id_subsecao','id_artigo','id_paragrafo', 'id_inciso','id_alinea', 'conteudo']).where({id:id}).table("tab_conteudo");

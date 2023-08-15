@@ -399,6 +399,13 @@ class RegimentoController{
 
 
    }
+   async listaqordem(req, res) {
+
+      var qordem = await Conteudo.findAllqordem();
+      res.json(qordem);  
+
+
+   }
    async updateconteudo(req, res) {
 
       var {id_bloco,id_tipo, id_titulo,id_capitulo, id_secao, id_subsecao,  id_artigo, id_paragrafo,id_inciso, alinea} = req.body;
