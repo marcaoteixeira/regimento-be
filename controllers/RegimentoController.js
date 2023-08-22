@@ -380,40 +380,33 @@ class RegimentoController{
    }  
    async conteudosave(req, res) {
 
-      var {id_bloco, id_tipo,  id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade} = req.body;       
+      var {id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, conteudo} = req.body;       
       
-      await Conteudo.ConteudoSave(id_bloco, id_tipo, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, id_alinea, facilidade);
+      await Conteudo.ConteudoSave(id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, conteudo);
      
    }
    async listaconteudo(req, res) {
 
       var conteudo = await Conteudo.findAll();
       res.json(conteudo);  
-
-
    }
    async listanota(req, res) {
 
       var nota = await Conteudo.findAllnotas();
       res.json(nota);  
-
-
    }
    async listaqordem(req, res) {
 
       var qordem = await Conteudo.findAllqordem();
-      res.json(qordem);  
-
-
+      res.json(qordem); 
    }
    async updateconteudo(req, res) {
 
-      var {id_bloco,id_tipo, id_titulo,id_capitulo, id_secao, id_subsecao,  id_artigo, id_paragrafo,id_inciso, alinea} = req.body;
+      var {id_bloco,id_tipo, id_artigo, id_paragrafo,id_inciso, id_alinea, conteudo} = req.body;
       
-      await Facilidade.FacilidadeUpdate(id_bloco, id_tipo, id_titulo,id_capitulo, id_secao, id_subsecao, id_artigo, id_paragrafo, id_inciso, alinea);
+      await Conteudo.ConteudoUpdate(id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, conteudo);
             
-   }
- 
+   } 
    async deleteconteudo(req, res) {
       var id =  req.params.id      
       await Conteudo.ConteudoDelete(id);
