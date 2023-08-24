@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.33, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
 --
 -- Host: localhost    Database: db_regdigital
 -- ------------------------------------------------------
--- Server version	8.0.33-0ubuntu0.22.04.1
+-- Server version	8.0.27
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -30,6 +30,7 @@ CREATE TABLE `tab_conteudo` (
   `id_paragrafo` int unsigned DEFAULT '0',
   `id_inciso` int unsigned DEFAULT '0',
   `id_alinea` int unsigned DEFAULT '0',
+  `linkartigo` int DEFAULT NULL,
   `conteudo` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   KEY `FK_tab_remissao_tab_artigo` (`id_artigo`) USING BTREE,
@@ -65,4 +66,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-22 11:19:21
+-- Dump completed on 2023-08-23 12:44:40
