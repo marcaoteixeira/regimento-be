@@ -380,9 +380,9 @@ class RegimentoController{
    }  
    async conteudosave(req, res) {
 
-      var {id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo, conteudo} = req.body;       
+      var {id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo, linkjuris, conteudo} = req.body;       
       
-      await Conteudo.ConteudoSave(id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo,  conteudo);
+      await Conteudo.ConteudoSave(id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo, linkjuris, conteudo);
      
    }
    async listaconteudo(req, res) {
@@ -402,9 +402,9 @@ class RegimentoController{
    }
    async updateconteudo(req, res) {
 
-      var {id_bloco,id_tipo, id_artigo, id_paragrafo,id_inciso, id_alinea, linkartigo, conteudo} = req.body;
+      var {id_bloco,id_tipo, id_artigo, id_paragrafo,id_inciso, id_alinea, linkartigo, linkjuris, conteudo} = req.body;
       
-      await Conteudo.ConteudoUpdate(id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo, conteudo);
+      await Conteudo.ConteudoUpdate(id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo, linkjuris, conteudo);
             
    } 
    async deleteconteudo(req, res) {
