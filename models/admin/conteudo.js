@@ -5,7 +5,7 @@ var knex = require("../../database/conection");
 class Conteudo{
     async findAll(){
        try{
-            var result = await knex.select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea', 'linkartigo', 'linkjuris', 'conteudo']).table("tab_conteudo");            
+            var result = await knex.select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea', 'linkartigo', 'linkjuris', 'numjuris', 'conteudo']).table("tab_conteudo");            
             return result;
         }catch(err){
             console.log(err);
@@ -14,8 +14,7 @@ class Conteudo{
     }
     async findAllnotas(){
         try{
-             //var result = await knex.select(['id', 'id_bloco', 'id_tipo', 'id_titulo' , 'id_capitulo' , 'id_secao' , 'id_subsecao','id_artigo','id_paragrafo', 'id_inciso','id_alinea', ', conteudo']).table("tab_conteudo"); 
-             var result = await knex('tab_conteudo').where({id_tipo: 18}).select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea','linkartigo', 'linkjuris', 'conteudo']);
+             var result = await knex('tab_conteudo').where({id_tipo: 18}).select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea','linkartigo', 'linkjuris', 'numjuris', 'conteudo']);
              return result;
          }catch(err){
              console.log(err);
@@ -24,7 +23,7 @@ class Conteudo{
     }
     async findAllqordem(){
         try{
-             var result = await knex('tab_conteudo').where({id_tipo: 8}).select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea','linkartigo', 'linkjuris','conteudo']);
+             var result = await knex('tab_conteudo').where({id_tipo: 8}).select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea','linkartigo', 'linkjuris', 'numjuris', 'conteudo']);
              return result;
          }catch(err){
              console.log(err);
@@ -33,7 +32,7 @@ class Conteudo{
     }
     async findById(id){
         try{
-            var result = await knex.select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea','linkartigo', 'linkjuris', 'conteudo']).where({id:id}).table("tab_conteudo");
+            var result = await knex.select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea','linkartigo', 'linkjuris', 'numjuris', 'conteudo']).where({id:id}).table("tab_conteudo");
             
             if(result.length > 0){
                 return result[0];
@@ -47,9 +46,9 @@ class Conteudo{
         }
          
     }
-    async ConteudoSave(id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo, linkjuris, conteudo){
+    async ConteudoSave(id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo, linkjuris, numjuris, conteudo){
         try{                       
-            await knex.insert({ id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo, linkjuris, conteudo}).table("tab_conteudo");
+            await knex.insert({ id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo, linkjuris, numjuris, conteudo}).table("tab_conteudo");
             console.log("Cadastro com sucesso!!!")
 
         }catch(error){ 
@@ -57,9 +56,9 @@ class Conteudo{
 
         }
     }  
-    async ConteudoUpdate(id, id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo, linkjuris,  conteudo){
+    async ConteudoUpdate(id, id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo, linkjuris, numjuris, conteudo){
         try{                       
-            await knex.where({id: id}).update({ id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo, linkjuris, conteudo}).table("tab_conteudo")
+            await knex.where({id: id}).update({ id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo, linkjuris, numjuris, conteudo}).table("tab_conteudo")
             console.log("Alterado com sucesso com sucesso!!!")
 
         }catch(error){
