@@ -1,1 +1,0 @@
-ALTER TABLE `tab_alinea` AUTO_INCREMENT=1

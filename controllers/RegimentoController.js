@@ -400,6 +400,13 @@ class RegimentoController{
       var qordem = await Conteudo.findAllqordem();
       res.json(qordem); 
    }
+
+   async listapratica(req, res) {
+
+      var pratica = await Conteudo.findAllpratica();
+      res.json(pratica); 
+   }
+
    async updateconteudo(req, res) {
 
       var {id_bloco,id_tipo, id_artigo, id_paragrafo,id_inciso, id_alinea, linkartigo, linkjuris, numjuris, conteudo} = req.body;

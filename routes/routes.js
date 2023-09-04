@@ -144,6 +144,7 @@ router.delete('/admin/conteudo/delete/:id',RegimentoController.deleteconteudo);
 //Rotas Regimento 
 router.post('/listnota',RegimentoController.listanota);
 router.post('/listqordem',RegimentoController.listaqordem);
+router.post('/listpratica',RegimentoController.listapratica);
 
 
 module.exports = router;

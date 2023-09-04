@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 8.0.33, for Linux (x86_64)
 --
--- Host: localhost    Database: db_regdigital
+-- Host: regfacilitado-db.ctigr16bsvyp.sa-east-1.rds.amazonaws.com    Database: db_regdigital
 -- ------------------------------------------------------
--- Server version	8.0.33-0ubuntu0.22.04.1
+-- Server version	8.0.33
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,6 +14,14 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ '';
 
 --
 -- Table structure for table `tab_quorum`
@@ -44,6 +52,7 @@ LOCK TABLES `tab_quorum` WRITE;
 INSERT INTO `tab_quorum` VALUES (1,'Comissão de Agricultura, Pecuária, Abastecimento e Desenvolvimento Rural ','CAPADR',52,26,27,6,4),(2,'Comissão de Ciência e Tecnologia, Comunicação e Informática ','CCTCI',42,21,22,5,3),(3,'Comissão de Constituição e JUstiça e Cidadania','CCJC',66,33,34,7,4),(4,'Comissão de Cultura','CCULT',20,10,11,2,2),(5,'Comissão de Defesa do Consumidor','CDC',24,12,13,3,2),(6,'Comissão de Defesa dos Direitos da Mulher','CMULHER',22,11,12,3,2),(7,'Comissão de Defesa dos Direitos da Pessoa Idosa','CIDOSO',22,11,12,3,2),(8,'Comissão de Defesa dos Direitos das Pessoas com Deficiência','CDP',20,10,11,2,2),(9,'Comissão de Desenvolvimento Econômico, Indústria e Comércio e Serviços','CDEICS',18,9,10,2,2),(10,'Comissão de Desenvolvimento Urbano','CDU',18,9,10,2,2),(11,'Comissão de Direitos HUmanos e Minorias ','CDHM',18,9,10,2,2),(12,'Comissão de Educação','CE',42,21,22,5,3),(13,'Comissão do Esporte','CESPO',21,11,11,3,2),(14,'Comissão de Finanças e Tributação','CFT',48,24,25,5,3),(15,'Comissão de Fiscalização Financeira e Controle','CFFC',22,11,12,3,2),(16,'Comissão de Integração Nacional, Desenvolvimento Regional e da Amazônio','CINDRA',20,10,11,2,2),(17,'Comissão de Legislação PArticipativa','CLP',18,9,10,2,2),(18,'Comissão de Meio Ambiente e Desevolvimento Sustentável','CMADS',18,9,10,2,2),(19,'Comissão de Minas e Energia','CME',48,24,25,5,3),(20,'Comissão de Relações Exteriores e de Defesa Nacional','CREDN',38,19,20,4,3),(21,'Comissão de Segurança Pública e Combate ao Crime Organizado','CSPCCO',38,19,29,4,3),(22,'Comissão de Seguridade Social e Família','CSSF',52,26,27,6,4),(23,'Comissão de Trabalho, de Administração e Serviço Público','CTASP',26,13,14,3,2),(24,'Comissão de Turismo','CTUR',20,10,11,2,2),(25,'Comissão de Viação e Transportes','CVT',48,24,25,5,3);
 /*!40000 ALTER TABLE `tab_quorum` ENABLE KEYS */;
 UNLOCK TABLES;
+SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -54,4 +63,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-22 11:19:21
+-- Dump completed on 2023-09-04 10:36:57

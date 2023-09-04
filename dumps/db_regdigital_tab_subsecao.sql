@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 8.0.33, for Linux (x86_64)
 --
--- Host: localhost    Database: db_regdigital
+-- Host: regfacilitado-db.ctigr16bsvyp.sa-east-1.rds.amazonaws.com    Database: db_regdigital
 -- ------------------------------------------------------
--- Server version	8.0.33-0ubuntu0.22.04.1
+-- Server version	8.0.33
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,6 +14,14 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ '';
 
 --
 -- Table structure for table `tab_subsecao`
@@ -47,6 +55,7 @@ LOCK TABLES `tab_subsecao` WRITE;
 INSERT INTO `tab_subsecao` VALUES (1,2,23,7,'Subseção I – Da Composição e Instalação'),(2,2,23,7,'Subseção II – Das Subcomissões e Turmas'),(3,2,23,7,'Subseção III – Das Matérias ou Atividades de Competência das Comissões'),(4,2,23,8,'Subseção I – Das Comissões Especiais'),(5,2,23,8,'Subseção II – Das Comissões Parlamentares de Inquérito'),(6,2,23,8,'Subseção III – Das Comissões Externas'),(7,2,23,13,'Subseção I – Da Ordem dos Trabalhos'),(8,2,23,13,'Subseção II – Dos Prazos'),(9,5,46,33,'Subseção I – Da Inscrição de Debatedores'),(10,5,46,33,'Subseção II – Do Uso da Palavra'),(11,5,46,33,'Subseção III – Do Aparte');
 /*!40000 ALTER TABLE `tab_subsecao` ENABLE KEYS */;
 UNLOCK TABLES;
+SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -57,4 +66,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-22 11:19:21
+-- Dump completed on 2023-09-04 10:37:23

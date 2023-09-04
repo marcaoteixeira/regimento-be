@@ -30,6 +30,16 @@ class Conteudo{
              return[];
          }
     }
+    async findAllpratica(){
+        try{
+             var result = await knex('tab_conteudo').where({id_tipo: 15}).select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea','linkartigo', 'linkjuris', 'numjuris', 'conteudo']);
+             return result;
+         }catch(err){
+             console.log(err);
+             return[];
+         }
+    }
+ 
     async findById(id){
         try{
             var result = await knex.select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea','linkartigo', 'linkjuris', 'numjuris', 'conteudo']).where({id:id}).table("tab_conteudo");
