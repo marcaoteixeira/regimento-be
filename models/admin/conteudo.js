@@ -39,6 +39,34 @@ class Conteudo{
              return[];
          }
     }
+    async findAllconsulta(){
+        try{
+             var result = await knex('tab_conteudo').where({id_tipo: 9}).select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea','linkartigo', 'linkjuris', 'numjuris', 'conteudo']);
+          
+             return result;
+         }catch(err){
+             console.log(err);
+             return[];
+         }
+    }
+    async findAlldecisao(){
+        try{
+             var result = await knex('tab_conteudo').where({id_tipo: 10}).select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea','linkartigo', 'linkjuris', 'numjuris', 'conteudo']);
+             return result;
+         }catch(err){
+             console.log(err);
+             return[];
+         }
+    }
+    async findAllrec(){
+        try{
+             var result = await knex('tab_conteudo').where({id_tipo: 12}).select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea','linkartigo', 'linkjuris', 'numjuris', 'conteudo']);
+             return result;
+         }catch(err){
+             console.log(err);
+             return[];
+         }
+    }
  
     async findById(id){
         try{

@@ -406,6 +406,21 @@ class RegimentoController{
       var pratica = await Conteudo.findAllpratica();
       res.json(pratica); 
    }
+   async listaconsulta(req, res) {
+
+      var consulta = await Conteudo.findAllconsulta();
+      res.json(consulta); 
+   }
+   async listadecisao(req, res) {
+
+      var decisao = await Conteudo.findAlldecisao();
+      res.json(decisao); 
+   }
+   async listarec(req, res) {
+
+      var rec = await Conteudo.findAllrec();
+      res.json(rec); 
+   }
 
    async updateconteudo(req, res) {
 
