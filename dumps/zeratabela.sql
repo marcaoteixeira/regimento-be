@@ -1,1 +1,1 @@
-ALTER TABLE `tab_alinea` AUTO_INCREMENT=1
+ALTER TABLE `tab_conteudo` AUTO_INCREMENT=1
