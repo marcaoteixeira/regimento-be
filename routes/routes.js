@@ -142,12 +142,23 @@ router.put('/admin/conteudo/update',RegimentoController.updateconteudo);
 router.delete('/admin/conteudo/delete/:id',RegimentoController.deleteconteudo);
 
 //Rotas Regimento 
-router.post('/listnota',RegimentoController.listanota);
+router.post('/listartigo',RegimentoController.listaartigo);
+router.post('/listato',RegimentoController.listaato);
+router.post('/listcodigo',RegimentoController.listacodigo);
+router.post('/listlei',RegimentoController.listalei);
+router.post('/listnorma',RegimentoController.listanorma);
+router.post('/listregulamento',RegimentoController.listaregulamento);
+router.post('/listresolucao',RegimentoController.listaresolucao);
 router.post('/listqordem',RegimentoController.listaqordem);
-router.post('/listpratica',RegimentoController.listapratica);
 router.post('/listconsulta',RegimentoController.listaconsulta);
-router.post('/listdecisao',RegimentoController.listadecisao);
 router.post('/listrec',RegimentoController.listarec);
+router.post('/listrem',RegimentoController.listarem);
+router.post('/liststf',RegimentoController.listastf);
+router.post('/listpratica',RegimentoController.listapratica);
+router.post('/listprecedente',RegimentoController.listaprecedente);
+router.post('/listobs',RegimentoController.listaobs);
+router.post('/listnota',RegimentoController.listanota);
+router.post('/listsumula',RegimentoController.listasumula);
 
 
 module.exports = router;

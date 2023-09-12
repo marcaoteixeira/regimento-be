@@ -375,7 +375,7 @@ class RegimentoController{
       }else{
           res.status(200)
           res.json(conteudo);
-      }
+      } 
 
    }  
    async conteudosave(req, res) {
@@ -390,21 +390,46 @@ class RegimentoController{
       var conteudo = await Conteudo.findAll();
       res.json(conteudo);  
    }
-   async listanota(req, res) {
+   async listaartigo(req, res) {
 
-      var nota = await Conteudo.findAllnotas();
-      res.json(nota);  
+      var artigo = await Conteudo.findAllartigo();
+      res.json(artigo);  
    }
+   async listaato(req, res) {
+
+      var ato = await Conteudo.findAllato();
+      res.json(ato);  
+   }
+   async listacodigo(req, res) {
+
+      var codigo = await Conteudo.findAllcodigo();
+      res.json(codigo);  
+   }
+   async listalei(req, res) {
+
+      var lei = await Conteudo.findAlllei();
+      res.json(lei);  
+   }
+   async listanorma(req, res) {
+
+      var norma = await Conteudo.findAllnorma();
+      res.json(norma);  
+   }
+   async listaregulamento(req, res) {
+
+      var regulamento = await Conteudo.findAllregulamento();
+      res.json(regulamento);  
+   }
+   async listaresolucao(req, res) {
+
+      var resolucao = await Conteudo.findAllresolucao();
+      res.json(resolucao);  
+   }
+    
    async listaqordem(req, res) {
 
       var qordem = await Conteudo.findAllqordem();
       res.json(qordem); 
-   }
-
-   async listapratica(req, res) {
-
-      var pratica = await Conteudo.findAllpratica();
-      res.json(pratica); 
    }
    async listaconsulta(req, res) {
 
@@ -416,12 +441,46 @@ class RegimentoController{
       var decisao = await Conteudo.findAlldecisao();
       res.json(decisao); 
    }
+    
    async listarec(req, res) {
 
       var rec = await Conteudo.findAllrec();
       res.json(rec); 
    }
+   async listarem(req, res) {
 
+      var rem = await Conteudo.findAllrem();
+      res.json(rem); 
+   }
+   async listastf(req, res) {
+
+      var stf = await Conteudo.findAllstf();
+      res.json(stf); 
+   }
+   async listapratica(req, res) {
+
+      var pratica = await Conteudo.findAllpratica();
+      res.json(pratica); 
+   }
+   async listaprecedente(req, res) {
+
+      var precedente = await Conteudo.findAllpre();
+      res.json(precedente); 
+   }
+   async listaobs(req, res) {
+
+      var observacao = await Conteudo.findAllpre();
+      res.json(observacao); 
+   }
+
+   async listanota(req, res) {
+      var nota = await Conteudo.findAllnotas();
+      res.json(nota);  
+   }
+   async listasumula(req, res) {
+      var sumula = await Conteudo.findAllsumula();
+      res.json(sumula); 
+   }
    async updateconteudo(req, res) {
 
       var {id_bloco,id_tipo, id_artigo, id_paragrafo,id_inciso, id_alinea, linkartigo, linkjuris, numjuris, conteudo} = req.body;
