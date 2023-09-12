@@ -142,7 +142,7 @@ router.put('/admin/conteudo/update',RegimentoController.updateconteudo);
 router.delete('/admin/conteudo/delete/:id',RegimentoController.deleteconteudo);
 
 //Rotas Regimento 
-router.post('/listartigo',RegimentoController.listaartigo);
+router.post('/listartigo',RegimentoController.listartigo);
 router.post('/listato',RegimentoController.listaato);
 router.post('/listcodigo',RegimentoController.listacodigo);
 router.post('/listlei',RegimentoController.listalei);
