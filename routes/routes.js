@@ -151,6 +151,7 @@ router.post('/listregulamento',RegimentoController.listaregulamento);
 router.post('/listresolucao',RegimentoController.listaresolucao);
 router.post('/listqordem',RegimentoController.listaqordem);
 router.post('/listconsulta',RegimentoController.listaconsulta);
+router.post('/listdecisao',RegimentoController.listadecisao)
 router.post('/listrec',RegimentoController.listarec);
 router.post('/listrem',RegimentoController.listarem);
 router.post('/liststf',RegimentoController.listastf);
