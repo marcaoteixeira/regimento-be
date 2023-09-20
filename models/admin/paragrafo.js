@@ -5,7 +5,7 @@ var knex = require("../../database/conection");
 class Paragrafo{
     async findAll(){
        try{
-            var result = await knex.select(['id', 'id_artigo','paragrafo', 'caput']).table("tab_paragrafo");            
+            var result = await knex.select(['id', 'id_artigo','paragrafo', 'caput']).orderBy(knex.raw('id_artigo,cast(REGEXP_REPLACE(paragrafo, "[^0-9]+" , "") AS UNSIGNED),paragrafo')).table("tab_paragrafo");            
             return result;
         }catch(err){
             console.log(err);
