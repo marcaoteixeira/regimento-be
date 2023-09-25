@@ -78,7 +78,7 @@ class Conteudo{
  
     async findAllqordem(){
         try{
-             var result = await knex('tab_conteudo').where({id_tipo: 8}).select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea','linkartigo', 'linkjuris', 'numjuris', 'conteudo']).orderBy(knex.raw('id_artigo,cast(REGEXP_REPLACE(numjuris, "[^0-9]+" , "") AS UNSIGNED) desc,numjuris'));
+             var result = await knex('tab_conteudo').where({id_tipo: 8}).select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea','linkartigo', 'linkjuris', 'numjuris', 'conteudo']).orderBy(knex.raw('RIGHT(numjuris,4)'),'desc').orderBy('numjuris','desc');
              return result;
          }catch(err){
              console.log(err);
