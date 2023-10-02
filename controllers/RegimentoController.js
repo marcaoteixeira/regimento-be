@@ -483,10 +483,11 @@ class RegimentoController{
    }
    async updateconteudo(req, res) {
 
-      var {id_bloco,id_tipo, id_artigo, id_paragrafo,id_inciso, id_alinea, linkartigo, linkjuris, numjuris, conteudo} = req.body;
+      var {id, id_bloco,id_tipo, id_artigo, id_paragrafo,id_inciso, id_alinea, linkartigo, linkjuris, numjuris, conteudo} = req.body;
       
-      await Conteudo.ConteudoUpdate(id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo, linkjuris, numjuris, conteudo);
-            
+      await Conteudo.ConteudoUpdate(id, id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo, linkjuris, numjuris, conteudo);
+      
+              
    } 
    async deleteconteudo(req, res) {
       var id =  req.params.id      

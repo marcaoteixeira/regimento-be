@@ -5,7 +5,7 @@ var knex = require("../../database/conection");
 class Conteudo{
     async findAll(){
        try{
-            var result = await knex.select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea', 'linkartigo', 'linkjuris', 'numjuris', 'conteudo']).table("tab_conteudo");            
+            var result = await knex.select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea', 'linkartigo', 'linkjuris', 'numjuris', 'conteudo']).orderBy(knex.raw('RIGHT(numjuris,4)'),'desc').orderBy('numjuris','desc').table("tab_conteudo");            
             return result;
         }catch(err){
             console.log(err);
@@ -206,16 +206,18 @@ class Conteudo{
 
         }
     }  
-    async ConteudoUpdate(id, id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo, linkjuris, numjuris, conteudo){
+ 
+    async ConteudoUpdate(id,id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo, linkjuris, numjuris, conteudo){
         try{                       
-            await knex.where({id: id}).update({ id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo, linkjuris, numjuris, conteudo}).table("tab_conteudo")
-            console.log("Alterado com sucesso com sucesso!!!")
+            await knex.where({id: id}).update({ id_bloco, id_tipo, id_artigo, id_paragrafo, id_inciso, id_alinea, linkartigo, linkjuris, numjuris, conteudo}).table("tab_conteudo");
+            console.log("Alterado com sucesso!!!")
 
-        }catch(error){
+        }catch(error){ 
             console.log(error);            
 
         }
-    } 
+    }
+
     async ConteudoDelete(id){
         try{                       
             await knex.where({id: id}).delete().table("tab_conteudo")
