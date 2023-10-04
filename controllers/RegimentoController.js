@@ -469,7 +469,7 @@ class RegimentoController{
    }
    async listaobs(req, res) {
 
-      var observacao = await Conteudo.findAllpre();
+      var observacao = await Conteudo.findAllobs();
       res.json(observacao); 
    }
 
