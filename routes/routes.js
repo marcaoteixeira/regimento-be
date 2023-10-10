@@ -161,6 +161,11 @@ router.post('/listobs',RegimentoController.listaobs);
 router.post('/listnota',RegimentoController.listanota);
 router.post('/listsumula',RegimentoController.listasumula);
 
+//Rotas do regimento por bloco
+router.post('/listjurisprudencia',RegimentoController.listajurisprudencia);
+router.post('/listjremissao',RegimentoController.listaremissao);
+router.post('/listobservacao',RegimentoController.listaobservacao);
+
 
 module.exports = router;
 

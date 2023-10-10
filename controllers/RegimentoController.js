@@ -390,6 +390,24 @@ class RegimentoController{
       var conteudo = await Conteudo.findAll();
       res.json(conteudo);  
    }
+
+   
+   async listajurisprudencia(req, res) {
+
+      var jurisprudencia = await Conteudo.findAlljurisprudencia();
+      res.json(jurisprudencia);  
+   }
+
+   async listaremissao(req, res) {
+      var remissao = await Conteudo.findAllremissao();
+      res.json(remissao);  
+   }
+
+   async listaobservacao(req, res) {
+      var observacao = await Conteudo.findAllobservacao();
+      res.json(observacao);  
+   }
+
    async listartigo(req, res) {
 
       var artigo = await Conteudo.findAllartigo();

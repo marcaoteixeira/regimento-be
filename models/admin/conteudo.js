@@ -5,7 +5,7 @@ var knex = require("../../database/conection");
 class Conteudo{
     async findAll(){
        try{
-            var result = await knex.select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea', 'linkartigo', 'linkjuris', 'numjuris', 'conteudo']).orderBy(knex.raw('RIGHT(numjuris,4)'),'desc').orderBy('numjuris','desc').table("tab_conteudo");            
+            var result = await knex.select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea', 'linkartigo', 'linkjuris', 'numjuris', 'conteudo'])           
             return result;
         }catch(err){
             console.log(err);
@@ -21,6 +21,35 @@ class Conteudo{
              return[];
          }
     }
+    async findAllremissao(){
+        try{
+             var result = await knex('tab_conteudo').where({id_bloco: 1}).select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea','linkartigo', 'linkjuris', 'numjuris', 'conteudo']);
+             return result;
+         }catch(err){
+             console.log(err);
+             return[];
+         }
+    }
+    async findAlljurisprudencia(){
+        try{
+             var result = await knex('tab_conteudo').where({id_bloco: 2}).select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea','linkartigo', 'linkjuris', 'numjuris', 'conteudo']).orderBy(knex.raw('RIGHT(numjuris,4)'),'desc').orderBy('numjuris','desc').table("tab_conteudo");
+             return result;
+         }catch(err){
+             console.log(err);
+             return[];
+         }
+    }
+   
+    async findAllobservacao(){
+        try{
+             var result = await knex('tab_conteudo').where({id_bloco: 3}).select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea','linkartigo', 'linkjuris', 'numjuris', 'conteudo']);
+             return result;
+         }catch(err){
+             console.log(err);
+             return[];
+         }
+    }
+    
     async findAllato(){
         try{
              var result = await knex('tab_conteudo').where({id_tipo: 2}).select(['id', 'id_bloco', 'id_tipo', 'id_artigo','id_paragrafo', 'id_inciso','id_alinea','linkartigo', 'linkjuris', 'numjuris', 'conteudo']);
