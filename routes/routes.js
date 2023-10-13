@@ -163,7 +163,7 @@ router.post('/listsumula',RegimentoController.listasumula);
 
 //Rotas do regimento por bloco
 router.post('/listjurisprudencia',RegimentoController.listajurisprudencia);
-router.post('/listjremissao',RegimentoController.listaremissao);
+router.post('/listremissao',RegimentoController.listaremissao);
 router.post('/listobservacao',RegimentoController.listaobservacao);
 
 
