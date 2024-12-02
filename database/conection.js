@@ -8,10 +8,10 @@ const knex = require('knex')({
         database: 'db_regdigital'
     }  */
 
-// Estância Mysql AMS EC2
+// Estância Mysql AWS RDS
  client: 'mysql2',
     connection: {
-        host: 'regfacilitado-db.ctigr16bsvyp.sa-east-1.rds.amazonaws.com',
+        host: 'regfacilitado-db.cnaqg0i2ycq5.us-east-2.rds.amazonaws.com',        
         port: 3306,
         user: 'admin',
         password: 'dani039808',
